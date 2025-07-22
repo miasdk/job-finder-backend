@@ -210,6 +210,7 @@ def simple_job_detail_api(request, job_id):
 def get_user_preferences(request):
     """Get user preferences"""
     try:
+        # Ensure preferences exist, create defaults if needed
         prefs = UserPreferences.get_active_preferences()
         
         data = {
