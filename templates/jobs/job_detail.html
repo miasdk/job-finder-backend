@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ job.title }} at {{ job.company.name }} - Personal Job Finder{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'jobs:dashboard' %}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'jobs:job_list' %}">Jobs</a></li>
+                <li class="breadcrumb-item active">{{ job.title }}</li>
+            </ol>
+        </nav>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h1 class="card-title">{{ job.title }}</h1>
+                <h3 class="card-subtitle text-muted mb-3">{{ job.company.name }}</h3>
+                
+                <!-- Job Meta Info -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <p><strong>📍 Location:</strong> {{ job.location }} ({{ job.get_location_type_display }})</p>
+                        <p><strong>💼 Experience Level:</strong> {{ job.get_experience_level_display }}</p>
+                        <p><strong>⏰ Employment Type:</strong> {{ job.get_employment_type_display }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        {% if job.salary_min or job.salary_max %}
+                            <p><strong>💰 Salary:</strong> {{ job.salary_range_str }}</p>
+                        {% endif %}
+                        <p><strong>📅 Posted:</strong> {{ job.posted_date|timesince }} ago</p>
+                        <p><strong>🔍 Source:</strong> {{ job.source|title }}</p>
+                    </div>
+                </div>
+
+                <!-- Badges -->
+                <div class="mb-4">
+                    {% if job.is_entry_level_friendly %}
+                        <span class="badge bg-success me-2">Entry Level Friendly</span>
+                    {% endif %}
+                    {% if job.location_type == 'remote' %}
+                        <span class="badge bg-info me-2">Remote</span>
+                    {% elif job.location_type == 'hybrid' %}
+                        <span class="badge bg-warning me-2">Hybrid</span>
+                    {% endif %}
+                </div>
+
+                <!-- Job Description -->
+                <div class="mb-4">
+                    <h4>Job Description</h4>
+                    <div class="job-description">
+                        {{ job.description|linebreaks }}
+                    </div>
+                </div>
+
+                <!-- Required Skills -->
+                {% if job.required_skills %}
+                    <div class="mb-4">
+                        <h4>Required Skills</h4>
+                        <div>
+                            {% for skill in job.required_skills %}
+                                <span class="skill-tag 
+                                    {% if job.score and skill in job.score.matching_skills %}matched{% endif %}">
+                                    {{ skill }}
+                                    {% if job.score and skill in job.score.matching_skills %}✓{% endif %}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Related Jobs -->
+        {% if related_jobs %}
+            <div class="card">
+                <div class="card-header">
+                    <h5>Other Jobs at {{ job.company.name }}</h5>
+                </div>
+                <div class="card-body">
+                    {% for related_job in related_jobs %}
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <a href="{% url 'jobs:job_detail' related_job.id %}" class="text-decoration-none">
+                                    {{ related_job.title }}
+                                </a>
+                                <small class="text-muted d-block">{{ related_job.location }}</small>
+                            </div>
+                            {% if related_job.score %}
+                                <span class="job-score">{{ related_job.score.total_score|floatformat:1 }}</span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-md-4">
+        <!-- Score Card -->
+        {% if job.score %}
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Match Score</h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="display-4 job-score mb-2">{{ job.score.total_score|floatformat:1 }}</div>
+                    <p class="mb-3">Overall Match</p>
+                    
+                    {% if job.score.recommended_for_application %}
+                        <div class="alert alert-success">
+                            <strong>✓ Recommended for Application</strong>
+                            <br>This job is a great match for your skills!
+                        </div>
+                    {% elif job.score.meets_minimum_requirements %}
+                        <div class="alert alert-warning">
+                            <strong>⚠ Meets Minimum Requirements</strong>
+                            <br>Consider applying if interested.
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <strong>ℹ Below Minimum</strong>
+                            <br>May not be the best match.
+                        </div>
+                    {% endif %}
+
+                    <!-- Score Breakdown -->
+                    <div class="row text-start">
+                        <div class="col-6">
+                            <small><strong>Skills:</strong></small>
+                            <div class="job-score">{{ job.score.skills_match_score|floatformat:1 }}</div>
+                        </div>
+                        <div class="col-6">
+                            <small><strong>Experience:</strong></small>
+                            <div class="job-score">{{ job.score.experience_match_score|floatformat:1 }}</div>
+                        </div>
+                        <div class="col-6">
+                            <small><strong>Location:</strong></small>
+                            <div class="job-score">{{ job.score.location_preference_score|floatformat:1 }}</div>
+                        </div>
+                        <div class="col-6">
+                            <small><strong>Salary:</strong></small>
+                            <div class="job-score">{{ job.score.salary_match_score|floatformat:1 }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <p>This job hasn't been scored yet.</p>
+                    <button class="btn btn-primary" onclick="scoreJob({{ job.id }}, this)">
+                        Score This Job
+                    </button>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Skills Breakdown -->
+        {% if job.score and job.score.matching_skills %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6>✓ Your Matching Skills</h6>
+                </div>
+                <div class="card-body">
+                    {% for skill in job.score.matching_skills %}
+                        <span class="skill-tag matched">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if job.score and job.score.missing_skills %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6>⚠ Skills to Learn</h6>
+                </div>
+                <div class="card-body">
+                    {% for skill in job.score.missing_skills %}
+                        <span class="skill-tag">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Actions -->
+        <div class="card">
+            <div class="card-body d-grid gap-2">
+                <a href="{{ job.source_url }}" target="_blank" class="btn btn-success">
+                    Apply on {{ job.source|title }}
+                </a>
+                <button class="btn btn-outline-primary" onclick="shareJob()">
+                    Share Job
+                </button>
+                <a href="{% url 'jobs:job_list' %}" class="btn btn-outline-secondary">
+                    ← Back to Jobs
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+async function scoreJob(jobId, button) {
+    const originalText = button.textContent;
+    button.textContent = 'Scoring...';
+    button.disabled = true;
+    
+    try {
+        const response = await fetch(`/api/score-job/${jobId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]')?.value || '',
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            location.reload(); // Reload to show updated score
+        } else {
+            alert('Error scoring job: ' + data.error);
+            button.textContent = originalText;
+            button.disabled = false;
+        }
+    } catch (error) {
+        alert('Error scoring job: ' + error.message);
+        button.textContent = originalText;
+        button.disabled = false;
+    }
+}
+
+function shareJob() {
+    if (navigator.share) {
+        navigator.share({
+            title: '{{ job.title }} at {{ job.company.name }}',
+            text: 'Check out this job opportunity',
+            url: window.location.href
+        });
+    } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Job URL copied to clipboard!');
+    }
+}
+</script>
+{% endblock %}

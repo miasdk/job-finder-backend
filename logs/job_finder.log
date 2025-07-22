@@ -1,0 +1,70 @@
+Scored job 'Django Developer - Entry Level' with total score: 54.3
+Scored job 'Remote Python Developer' with total score: 53.7
+Scored job 'Senior Backend Engineer' with total score: 47.6
+Scored job 'Full Stack Developer' with total score: 53.2
+Scored job 'Junior Python Developer' with total score: 53.5
+Scored 5 jobs
+Scored job 'Django Developer - Entry Level' with total score: 54.3
+Scored job 'Remote Python Developer' with total score: 53.7
+Scored job 'Senior Backend Engineer' with total score: 47.6
+Scored job 'Full Stack Developer' with total score: 53.2
+Scored job 'Junior Python Developer' with total score: 53.5
+Rescored 5 jobs
+Failed to send email digest: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d75a77b69052e-4abb49802fasm52870821cf.2 - gsmtp')
+Starting Indeed job scraping for 3 search terms in New York, NY
+Fetching RSS feed for: Python Developer in New York, NY
+Fetching RSS feed: https://www.indeed.com/rss?q=Python+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50
+Error fetching RSS feed https://www.indeed.com/rss?q=Python+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50: 403 Client Error: Forbidden for url: https://www.indeed.com/rss?q=Python+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50
+Fetching RSS feed for: Django Developer in New York, NY
+Fetching RSS feed: https://www.indeed.com/rss?q=Django+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50
+Error fetching RSS feed https://www.indeed.com/rss?q=Django+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50: 403 Client Error: Forbidden for url: https://www.indeed.com/rss?q=Django+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50
+Fetching RSS feed for: Backend Developer in New York, NY
+Fetching RSS feed: https://www.indeed.com/rss?q=Backend+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50
+Error fetching RSS feed https://www.indeed.com/rss?q=Backend+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50: 403 Client Error: Forbidden for url: https://www.indeed.com/rss?q=Backend+Developer&l=New+York%2C+NY&sort=date&fromage=7&limit=50
+Found 0 unique jobs from Indeed RSS
+Successfully processed 0 jobs from RSS feed
+Successfully scraped 0 jobs from Indeed
+Generated 30 realistic job postings
+Scored 0 jobs
+Scored job 'Software Engineer' with total score: 52.1
+Scored job 'Software Engineer' with total score: 52.4
+Scored job 'Junior Python Developer' with total score: 53.6
+Scored job 'Junior Python Developer' with total score: 53.9
+Scored job 'Django Developer - Entry Level' with total score: 54.3
+Scored job 'Remote Python Developer' with total score: 53.7
+Scored job 'Senior Backend Engineer' with total score: 47.6
+Scored job 'Full Stack Developer' with total score: 53.2
+Scored job 'Junior Python Developer' with total score: 53.5
+Scored job 'Full Stack Developer' with total score: 51.6
+Scored job 'Full Stack Developer' with total score: 51.9
+Scored job 'Backend Developer' with total score: 52.1
+Scored job 'Backend Developer' with total score: 52.4
+Scored job 'Django Developer' with total score: 52.4
+Scored job 'Django Developer' with total score: 52.6
+Rescored 15 jobs
+Generated 30 realistic job postings
+Generated 30 realistic job postings
+Scraping RemoteOK...
+Scraping Python.org job board...
+Few real jobs found, supplementing with test data...
+Generated 30 realistic job postings
+Found 12 total jobs from all sources
+Scraping RemoteOK...
+Scraping Python.org job board...
+Few real jobs found, supplementing with test data...
+Generated 30 realistic job postings
+Found 13 total jobs from all sources
+Scraping RemoteOK...
+Scraping Python.org job board...
+Scraping Dice.com...
+Few real jobs found, supplementing with test data...
+Generated 30 realistic job postings
+Found 13 total jobs from all sources
+Scraping RemoteOK...
+Scraping Python.org job board...
+Scraping Dice.com...
+Scraping Wellfound/AngelList...
+Few real jobs found, supplementing with test data...
+Generated 30 realistic job postings
+Found 13 total jobs from all sources
+Scored 0 jobs

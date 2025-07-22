@@ -1,0 +1,10 @@
+Django==4.2.7
+celery==5.3.4
+redis==5.0.1
+feedparser==6.0.10
+beautifulsoup4==4.12.2
+requests==2.31.0
+python-decouple==3.8
+pytz==2023.3
+django-celery-beat==2.5.0
+django-celery-results==2.5.1
