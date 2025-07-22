@@ -9,6 +9,9 @@ from django.db.models import Q
 import json
 
 from .models import Job, JobScore, Company, EmailDigest, UserPreferences
+from django.core.management import call_command
+import io
+import sys
 
 
 @require_http_methods(["GET"])
@@ -352,3 +355,22 @@ def update_user_preferences(request):
         return JsonResponse({'error': 'Invalid JSON'}, status=400)
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def refresh_production_jobs(request):
+    """API endpoint to refresh job listings with proper source URLs"""
+    try:
+        # Capture command output
+        output = io.StringIO()
+        call_command('api_refresh_jobs', stdout=output)
+        result = json.loads(output.getvalue())
+        
+        return JsonResponse(result)
+        
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=500)
