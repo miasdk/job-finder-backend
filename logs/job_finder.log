@@ -162,3 +162,142 @@ Got 0 jobs from indeed_selenium
 Total unique jobs from priority sources: 2
 Scored job 'Senior AI Python Developer' with total score: 1.6
 Scored job 'Python Job Board' with total score: 47.1
+Searching Indeed: https://www.indeed.com/jobs?q=python+developer&l=New+York&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Selenium Indeed scraper found 0 jobs
+Initialized 5 job scrapers
+Searching Indeed: https://www.indeed.com/jobs?q=python&l=Remote&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Selenium Indeed scraper found 0 jobs
+Scraping priority source: remoteok
+Got 1 jobs from remoteok
+Scraping priority source: python_jobs
+Got 1 jobs from python_jobs
+Scraping priority source: indeed_selenium
+Searching Indeed: https://www.indeed.com/jobs?q=Python+Developer&l=New+York&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Searching Indeed: https://www.indeed.com/jobs?q=Python+Developer&l=Remote&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Searching Indeed: https://www.indeed.com/jobs?q=Django+Developer&l=New+York&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Searching Indeed: https://www.indeed.com/jobs?q=Django+Developer&l=Remote&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Selenium Indeed scraper found 0 jobs
+Got 0 jobs from indeed_selenium
+Total unique jobs from priority sources: 2
+Initialized 5 job scrapers
+Searching Indeed: https://www.indeed.com/jobs?q=python&l=Remote&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Selenium Indeed scraper found 0 jobs
+Scraping from remoteok...
+Got 21 jobs from remoteok
+Scraping from indeed...
+Got 0 jobs from indeed
+Scraping from indeed_selenium...
+Searching Indeed: https://www.indeed.com/jobs?q=Python+Developer&l=New+York&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Searching Indeed: https://www.indeed.com/jobs?q=Django+Developer&l=New+York&sort=date&fromage=14
+Timeout waiting for Indeed page to load
+Selenium Indeed scraper found 0 jobs
+Got 0 jobs from indeed_selenium
+Scraping from python_jobs...
+Got 0 jobs from python_jobs
+Scraping from wellfound...
+Scored job 'Software Engineer II Full Stack' with total score: 1.9
+Scored job 'Senior AI Python Developer' with total score: 1.6
+Scored job 'ML Scientist Foundation Model' with total score: 2.9
+Scored job 'Investment Research Associate' with total score: 1.9
+Scored job 'Senior DevOps Engineer' with total score: 1.9
+Scored job 'Senior Security Engineer' with total score: 1.9
+Scored job 'Membership Site Support Specialist' with total score: 1.9
+Scored job 'Backend Developer @ lobstr.io Python Scraping Celery' with total score: 5.4
+Scored job 'Senior TS React Developer' with total score: 1.9
+Scored job 'AI Driven Engineer Ruby' with total score: 1.9
+Scored job 'Senior Security Engineer' with total score: 1.9
+Scored job 'Software Engineer' with total score: 1.9
+Scored job 'Senior Developer' with total score: 1.9
+Scored job 'Lead Software Engineer II Backend' with total score: 1.9
+Scored job 'Application Engineer' with total score: 1.9
+Scored job 'Svelte Developer' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'Software Engineer II' with total score: 1.9
+Scored job 'EMEA Solutions Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer Full Stack' with total score: 1.9
+Scored job 'Data Engineer II' with total score: 1.9
+Scored job 'Senior Backend Engineer' with total score: 1.9
+Scored job 'Senior Scientific Software Engineer Magnet Protection Systems' with total score: 1.9
+Scored job 'Senior Site Reliability Engineer ML Platforms' with total score: 1.9
+Scored job 'Senior Python Backend Engineer' with total score: 1.9
+Scored job 'Go Developer Consultant' with total score: 1.9
+Scored job 'Senior Backend Engineer II' with total score: 1.9
+Scored job 'React Native Developer' with total score: 1.9
+Scored job 'Senior Staff Software Engineer Backend' with total score: 1.9
+Scored job 'Senior Fullstack Developer' with total score: 1.9
+Scored job 'Head of CRM' with total score: 1.9
+Scored job 'Content Producer Technical Content Engineer Junior Dev' with total score: 6.9
+Scored job 'Full Stack Engineer' with total score: 2.9
+Scored job 'Senior Software Engineer' with total score: 2.9
+Scored job 'Developer Relations Engineer' with total score: 1.9
+Scored job 'Senior Mobile iOS Engineer' with total score: 1.9
+Scored job 'Principal Game Designer' with total score: 2.9
+Scored job 'Senior Product Manager Data' with total score: 1.9
+Scored job 'Fullstack Developer JS Developer' with total score: 1.9
+Scored job 'Back End Engineer' with total score: 1.9
+Scored job 'Staff Front End Engineer' with total score: 2.9
+Scored job 'Opportunity for Golang Experts > who can think and work Full Stack' with total score: 1.9
+Scored job 'English Language Data Annotator' with total score: 1.9
+Scored job 'Member of Technical Staff Transparency' with total score: 1.9
+Scored job 'Full Stack Engineer' with total score: 1.9
+Scored job 'Staff Engineer Distributed Systems' with total score: 1.9
+Scored job 'Senior Software Engineer Open Source Server' with total score: 1.9
+Scored job 'Software Engineer Interop' with total score: 2.9
+Scored job 'Software Engineer' with total score: 1.9
+Scored job 'Software Engineer Ledger IOE Cardano' with total score: 1.9
+Scored job 'UI UX Product Designer' with total score: 1.9
+Scored job 'Admin and Support Specialist With Love for Writing' with total score: 1.9
+Scored job 'Crypto Compliance Project Manager' with total score: 1.9
+Scored job 'Executive Assistant &amp; Office Manager' with total score: 1.9
+Scored job 'Account Executive Retail' with total score: 1.9
+Scored job 'Senior Product Designer' with total score: 2.9
+Scored job 'Data Collection Participant Photo Submission Task' with total score: 2.4
+Scored job 'Aprio PH FP&amp;A Analyst' with total score: 1.9
+Scored job 'Sales Development Representative' with total score: 1.9
+Scored job 'Underwriter' with total score: 1.9
+Scored job 'User Support Specialist' with total score: 2.4
+Scored job 'Exchange Operations Analyst' with total score: 1.9
+Scored job 'Customer Success Analyst' with total score: 2.9
+Scored job 'QA Analyst' with total score: 2.9
+Scored job 'Technical Account Manager' with total score: 1.9
+Scored job 'Sales Director' with total score: 1.9
+Scored job 'Entrepreneurial Apprentice Eccentric Millionaire' with total score: 1.9
+Scored job 'Assistant Trader' with total score: 1.9
+Scored job 'Senior DevOps Engineer' with total score: 2.9
+Scored job 'Manufacturing Experts AI Trainer' with total score: 2.4
+Scored job 'Primary Coach Career Prep' with total score: 2.9
+Scored job 'Blockchain Security Researcher' with total score: 1.9
+Scored job '$1000 Weekly Virtual Assistant' with total score: 2.9
+Scored job 'Chief Executive Officer Crypto Blockchain' with total score: 1.9
+Scored job 'Security Researcher' with total score: 1.9
+Scored job 'Customer Onboarding & Support Specialist' with total score: 1.9
+Scored job 'US Rater' with total score: 1.9
+Scored job 'Business Development Manager Ad Tech' with total score: 1.9
+Scored job 'Partnerships Lead' with total score: 1.9
+Scored job 'Social Media Content Creator' with total score: 1.9
+Scored job 'UI UX Designer' with total score: 1.9
+Scored job 'Personalized Internet Assessor' with total score: 1.9
+Scored job 'Founding Product Lead' with total score: 1.9
+Scored job 'Customer Support Operations Lead' with total score: 1.9
+Scored job 'Growth Marketer' with total score: 1.9
+Scored job 'VP Associate Talent Acquisition' with total score: 1.9
+Scored job 'Mental Health Therapist' with total score: 1.9
+Scored job 'Heavy Maintenance Representative' with total score: 1.9
+Scored job 'Freelance Screenshot Collector Chinese' with total score: 1.9
+Scored job 'Workday HR Systems Analyst' with total score: 1.9
+Scored job 'Information Security Officer' with total score: 1.9
+Scored job 'PR & Events Intern Digital Assets' with total score: 1.9
+Scored job 'Customer Content Manager' with total score: 1.9
+Scored job 'Customer Support Manager United States' with total score: 1.9
+Scored job 'Golang Engineer' with total score: 1.9
+Scored job 'Golang Engineer' with total score: 1.9
+Scored job 'Python Job Board' with total score: 47.1
