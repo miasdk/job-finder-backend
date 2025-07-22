@@ -68,3 +68,97 @@ Few real jobs found, supplementing with test data...
 Generated 30 realistic job postings
 Found 13 total jobs from all sources
 Scored 0 jobs
+Initialized 4 job scrapers
+Scraping priority source: remoteok
+Got 1 jobs from remoteok
+Scraping priority source: python_jobs
+Got 1 jobs from python_jobs
+Scraping priority source: indeed
+Got 0 jobs from indeed
+Total unique jobs from priority sources: 2
+Initialized 4 job scrapers
+Scraping priority source: remoteok
+Got 1 jobs from remoteok
+Scraping priority source: python_jobs
+Got 1 jobs from python_jobs
+Scraping priority source: indeed
+Got 0 jobs from indeed
+Total unique jobs from priority sources: 2
+Initialized 4 job scrapers
+Scraping priority source: remoteok
+Got 1 jobs from remoteok
+Scraping priority source: python_jobs
+Got 1 jobs from python_jobs
+Scraping priority source: indeed
+Got 0 jobs from indeed
+Total unique jobs from priority sources: 2
+Initialized 4 job scrapers
+Scraping from remoteok...
+Got 21 jobs from remoteok
+Scraping from indeed...
+Got 0 jobs from indeed
+Scraping from python_jobs...
+Got 0 jobs from python_jobs
+Scraping from wellfound...
+Got 0 jobs from wellfound
+Total unique jobs collected: 21
+Scored job 'Software Engineer II Full Stack' with total score: 1.9
+Scored job 'Full Stack Engineer' with total score: 2.9
+Scored job 'ML Scientist Foundation Model' with total score: 2.9
+Scored job 'Investment Research Associate' with total score: 1.9
+Scored job 'Senior DevOps Engineer' with total score: 1.9
+Scored job 'Senior Security Engineer' with total score: 1.9
+Scored job 'Senior DevOps Engineer' with total score: 2.9
+Scored job 'Senior Security Engineer' with total score: 1.9
+Scored job 'Senior Developer' with total score: 1.9
+Scored job 'Lead Software Engineer II Backend' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'EMEA Solutions Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer Full Stack' with total score: 1.9
+Scored job 'Data Engineer II' with total score: 1.9
+Scored job 'Back End Engineer' with total score: 1.9
+Scored job 'Senior Scientific Software Engineer Magnet Protection Systems' with total score: 1.9
+Scored job 'Senior Site Reliability Engineer ML Platforms' with total score: 1.9
+Scored job 'Senior Python Backend Engineer' with total score: 1.9
+Initialized 4 job scrapers
+Scraping from remoteok...
+Got 21 jobs from remoteok
+Scraping from indeed...
+Got 0 jobs from indeed
+Scraping from python_jobs...
+Got 0 jobs from python_jobs
+Scraping from wellfound...
+Got 0 jobs from wellfound
+Total unique jobs collected: 21
+Scored job 'Software Engineer II Full Stack' with total score: 1.9
+Scored job 'Full Stack Engineer' with total score: 2.9
+Scored job 'ML Scientist Foundation Model' with total score: 2.9
+Scored job 'Investment Research Associate' with total score: 1.9
+Scored job 'Senior DevOps Engineer' with total score: 1.9
+Scored job 'Senior Security Engineer' with total score: 1.9
+Scored job 'Senior DevOps Engineer' with total score: 2.9
+Scored job 'Senior Security Engineer' with total score: 1.9
+Scored job 'Senior Developer' with total score: 1.9
+Scored job 'Lead Software Engineer II Backend' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'EMEA Solutions Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer Full Stack' with total score: 1.9
+Scored job 'Data Engineer II' with total score: 1.9
+Scored job 'Back End Engineer' with total score: 1.9
+Scored job 'Senior Scientific Software Engineer Magnet Protection Systems' with total score: 1.9
+Scored job 'Senior Site Reliability Engineer ML Platforms' with total score: 1.9
+Scored job 'Senior Python Backend Engineer' with total score: 1.9
+Selenium not available - install with: pip install selenium
+Initialized 5 job scrapers
+Scraping priority source: remoteok
+Got 1 jobs from remoteok
+Scraping priority source: python_jobs
+Got 1 jobs from python_jobs
+Scraping priority source: indeed_selenium
+Selenium not available - skipping Indeed scraping
+Got 0 jobs from indeed_selenium
+Total unique jobs from priority sources: 2
+Scored job 'Senior AI Python Developer' with total score: 1.6
+Scored job 'Python Job Board' with total score: 47.1

@@ -8,6 +8,7 @@ from typing import List, Dict, Optional
 from datetime import datetime, timezone
 from .remoteok_scraper import RemoteOKScraper
 from .enhanced_indeed_scraper import EnhancedIndeedScraper
+from .selenium_indeed_scraper import SeleniumIndeedScraper
 from .python_jobs_scraper import PythonJobsScraper
 from .wellfound_scraper import WellfoundScraper
 
@@ -24,6 +25,7 @@ class MultiSourceCoordinator:
         self.scrapers = {
             'remoteok': RemoteOKScraper(user_preferences),
             'indeed': EnhancedIndeedScraper(user_preferences),
+            'indeed_selenium': SeleniumIndeedScraper(user_preferences),
             'python_jobs': PythonJobsScraper(user_preferences),
             'wellfound': WellfoundScraper(user_preferences),
         }
@@ -74,7 +76,7 @@ class MultiSourceCoordinator:
         Scrape from priority sources for reliable results
         Focus on sources that typically have good data quality
         """
-        priority_scrapers = ['remoteok', 'python_jobs', 'indeed']
+        priority_scrapers = ['remoteok', 'python_jobs', 'indeed_selenium']
         all_jobs = []
         
         for source_name in priority_scrapers:
