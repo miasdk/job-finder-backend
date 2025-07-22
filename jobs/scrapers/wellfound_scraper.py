@@ -17,8 +17,8 @@ from .base_scraper import BaseScraper
 class WellfoundScraper(BaseScraper):
     """Scraper for Wellfound (formerly AngelList) startup job listings"""
     
-    def __init__(self):
-        super().__init__()
+    def __init__(self, user_preferences=None):
+        super().__init__(user_preferences)
         self.base_url = "https://wellfound.com"
         self.search_url = "https://wellfound.com/jobs"
         self.headers = {

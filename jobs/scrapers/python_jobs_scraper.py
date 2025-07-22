@@ -14,8 +14,8 @@ from .base_scraper import BaseScraper
 class PythonJobsScraper(BaseScraper):
     """Scraper for Python.org job board"""
     
-    def __init__(self):
-        super().__init__()
+    def __init__(self, user_preferences=None):
+        super().__init__(user_preferences)
         self.base_url = "https://www.python.org/jobs"
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
