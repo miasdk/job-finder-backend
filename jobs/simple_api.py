@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 import json
 
-from .models import Job, JobScore, Company, EmailDigest
+from .models import Job, JobScore, Company, EmailDigest, UserPreferences
 
 
 @require_http_methods(["GET"])
@@ -202,5 +202,148 @@ def simple_job_detail_api(request, job_id):
     
     except Job.DoesNotExist:
         return JsonResponse({'error': 'Job not found'}, status=404)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+@require_http_methods(["GET"])
+def get_user_preferences(request):
+    """Get user preferences"""
+    try:
+        prefs = UserPreferences.get_active_preferences()
+        
+        data = {
+            'id': prefs.id,
+            'name': prefs.name,
+            'email': prefs.email,
+            'skills': prefs.skills,
+            'experience_levels': prefs.experience_levels,
+            'min_experience_years': prefs.min_experience_years,
+            'max_experience_years': prefs.max_experience_years,
+            'preferred_locations': prefs.preferred_locations,
+            'location_types': prefs.location_types,
+            'min_salary': prefs.min_salary,
+            'max_salary': prefs.max_salary,
+            'currency': prefs.currency,
+            'job_titles': prefs.job_titles,
+            'preferred_companies': prefs.preferred_companies,
+            'skills_weight': prefs.skills_weight,
+            'experience_weight': prefs.experience_weight,
+            'location_weight': prefs.location_weight,
+            'salary_weight': prefs.salary_weight,
+            'company_weight': prefs.company_weight,
+            'email_enabled': prefs.email_enabled,
+            'email_frequency': prefs.email_frequency,
+            'email_time': prefs.email_time.strftime('%H:%M'),
+            'auto_scrape_enabled': prefs.auto_scrape_enabled,
+            'scrape_frequency_hours': prefs.scrape_frequency_hours,
+            'min_job_score_threshold': prefs.min_job_score_threshold,
+            'updated_at': prefs.updated_at.isoformat()
+        }
+        
+        return JsonResponse(data)
+        
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST", "PUT"])
+def update_user_preferences(request):
+    """Update user preferences"""
+    try:
+        data = json.loads(request.body)
+        prefs = UserPreferences.get_active_preferences()
+        
+        # Update fields if provided
+        if 'name' in data:
+            prefs.name = data['name']
+        if 'email' in data:
+            prefs.email = data['email']
+        if 'skills' in data:
+            prefs.skills = data['skills']
+        if 'experience_levels' in data:
+            prefs.experience_levels = data['experience_levels']
+        if 'min_experience_years' in data:
+            prefs.min_experience_years = data['min_experience_years']
+        if 'max_experience_years' in data:
+            prefs.max_experience_years = data['max_experience_years']
+        if 'preferred_locations' in data:
+            prefs.preferred_locations = data['preferred_locations']
+        if 'location_types' in data:
+            prefs.location_types = data['location_types']
+        if 'min_salary' in data:
+            prefs.min_salary = data['min_salary']
+        if 'max_salary' in data:
+            prefs.max_salary = data['max_salary']
+        if 'currency' in data:
+            prefs.currency = data['currency']
+        if 'job_titles' in data:
+            prefs.job_titles = data['job_titles']
+        if 'preferred_companies' in data:
+            prefs.preferred_companies = data['preferred_companies']
+        if 'skills_weight' in data:
+            prefs.skills_weight = data['skills_weight']
+        if 'experience_weight' in data:
+            prefs.experience_weight = data['experience_weight']
+        if 'location_weight' in data:
+            prefs.location_weight = data['location_weight']
+        if 'salary_weight' in data:
+            prefs.salary_weight = data['salary_weight']
+        if 'company_weight' in data:
+            prefs.company_weight = data['company_weight']
+        if 'email_enabled' in data:
+            prefs.email_enabled = data['email_enabled']
+        if 'email_frequency' in data:
+            prefs.email_frequency = data['email_frequency']
+        if 'email_time' in data:
+            from datetime import time
+            hour, minute = map(int, data['email_time'].split(':'))
+            prefs.email_time = time(hour, minute)
+        if 'auto_scrape_enabled' in data:
+            prefs.auto_scrape_enabled = data['auto_scrape_enabled']
+        if 'scrape_frequency_hours' in data:
+            prefs.scrape_frequency_hours = data['scrape_frequency_hours']
+        if 'min_job_score_threshold' in data:
+            prefs.min_job_score_threshold = data['min_job_score_threshold']
+        
+        prefs.save()
+        
+        # Return updated preferences
+        return JsonResponse({
+            'success': True,
+            'message': 'Preferences updated successfully',
+            'preferences': {
+                'id': prefs.id,
+                'name': prefs.name,
+                'email': prefs.email,
+                'skills': prefs.skills,
+                'experience_levels': prefs.experience_levels,
+                'min_experience_years': prefs.min_experience_years,
+                'max_experience_years': prefs.max_experience_years,
+                'preferred_locations': prefs.preferred_locations,
+                'location_types': prefs.location_types,
+                'min_salary': prefs.min_salary,
+                'max_salary': prefs.max_salary,
+                'currency': prefs.currency,
+                'job_titles': prefs.job_titles,
+                'preferred_companies': prefs.preferred_companies,
+                'skills_weight': prefs.skills_weight,
+                'experience_weight': prefs.experience_weight,
+                'location_weight': prefs.location_weight,
+                'salary_weight': prefs.salary_weight,
+                'company_weight': prefs.company_weight,
+                'email_enabled': prefs.email_enabled,
+                'email_frequency': prefs.email_frequency,
+                'email_time': prefs.email_time.strftime('%H:%M'),
+                'auto_scrape_enabled': prefs.auto_scrape_enabled,
+                'scrape_frequency_hours': prefs.scrape_frequency_hours,
+                'min_job_score_threshold': prefs.min_job_score_threshold,
+                'updated_at': prefs.updated_at.isoformat()
+            }
+        })
+        
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)

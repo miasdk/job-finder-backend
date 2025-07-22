@@ -153,3 +153,105 @@ class EmailDigest(models.Model):
     
     def __str__(self):
         return f"Email digest sent on {self.sent_at.strftime('%Y-%m-%d %H:%M')} ({self.jobs_count} jobs)"
+
+
+class UserPreferences(models.Model):
+    # Personal Info
+    name = models.CharField(max_length=100, default="Mia Elena")
+    email = models.EmailField(default="miariccidev@gmail.com")
+    
+    # Skills (stored as JSON array)
+    skills = models.JSONField(default=list, help_text="List of technical skills")
+    
+    # Experience Preferences
+    experience_levels = models.JSONField(
+        default=list, 
+        help_text="Preferred experience levels: entry, junior, mid, senior"
+    )
+    min_experience_years = models.IntegerField(default=0)
+    max_experience_years = models.IntegerField(default=3)
+    
+    # Location Preferences
+    preferred_locations = models.JSONField(
+        default=list,
+        help_text="List of preferred locations/cities"
+    )
+    location_types = models.JSONField(
+        default=list,
+        help_text="Preferred work types: remote, hybrid, onsite"
+    )
+    
+    # Salary Preferences
+    min_salary = models.IntegerField(default=70000)
+    max_salary = models.IntegerField(default=120000)
+    currency = models.CharField(max_length=3, default="USD")
+    
+    # Job Preferences
+    job_titles = models.JSONField(
+        default=list,
+        help_text="Target job titles to search for"
+    )
+    preferred_companies = models.JSONField(
+        default=list,
+        help_text="Preferred company types: startup, enterprise, tech, etc."
+    )
+    
+    # Scoring Weights (should add up to 100)
+    skills_weight = models.FloatField(default=45.0, help_text="Weight for skills matching (0-100)")
+    experience_weight = models.FloatField(default=25.0, help_text="Weight for experience matching (0-100)")
+    location_weight = models.FloatField(default=15.0, help_text="Weight for location preference (0-100)")
+    salary_weight = models.FloatField(default=10.0, help_text="Weight for salary matching (0-100)")
+    company_weight = models.FloatField(default=5.0, help_text="Weight for company type (0-100)")
+    
+    # Email Settings
+    email_enabled = models.BooleanField(default=True)
+    email_frequency = models.CharField(
+        max_length=20, 
+        choices=[
+            ('daily', 'Daily'),
+            ('weekly', 'Weekly'),
+            ('bi_weekly', 'Bi-weekly')
+        ],
+        default='daily'
+    )
+    email_time = models.TimeField(default='19:00', help_text="Time to send daily emails (EST)")
+    
+    # Scraping Settings
+    auto_scrape_enabled = models.BooleanField(default=True)
+    scrape_frequency_hours = models.IntegerField(default=24, help_text="Hours between scraping runs")
+    min_job_score_threshold = models.FloatField(default=50.0, help_text="Only save jobs above this score")
+    
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+    
+    class Meta:
+        ordering = ['-updated_at']
+        verbose_name = "User Preferences"
+        verbose_name_plural = "User Preferences"
+    
+    def __str__(self):
+        return f"Preferences for {self.name} ({self.email})"
+    
+    @classmethod
+    def get_active_preferences(cls):
+        """Get the active user preferences, create default if none exist"""
+        prefs = cls.objects.filter(is_active=True).first()
+        if not prefs:
+            prefs = cls.objects.create(
+                skills=[
+                    "Python", "Django", "PostgreSQL", "React", "JavaScript", 
+                    "HTML", "CSS", "Git", "AWS", "Docker", "REST APIs"
+                ],
+                experience_levels=["entry", "junior"],
+                preferred_locations=["New York", "Remote", "Brooklyn", "Manhattan"],
+                location_types=["remote", "hybrid", "onsite"],
+                job_titles=[
+                    "Python Developer", "Django Developer", "Backend Developer", 
+                    "Full Stack Developer", "Junior Software Engineer", 
+                    "Entry Level Developer", "Web Developer"
+                ],
+                preferred_companies=["startup", "tech", "healthcare", "fintech"]
+            )
+        return prefs

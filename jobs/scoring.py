@@ -1,90 +1,114 @@
 import logging
 from typing import Dict, List, Optional
 from django.utils import timezone
-from .models import Job, JobScore
+from .models import Job, JobScore, UserPreferences
 
 logger = logging.getLogger('jobs')
 
 class JobScorer:
-    """Score jobs based on user's skills and preferences"""
+    """Score jobs based on user's dynamic preferences"""
     
-    def __init__(self):
-        # User's profile from requirements
-        self.user_skills = {
-            # Primary skills (higher weight)
-            'Python': 20,
-            'Django': 20,
-            'PostgreSQL': 15,
-            'React': 15,
-            'Django REST Framework': 18,
+    def __init__(self, preferences: Optional[UserPreferences] = None):
+        """Initialize with user preferences or load from database"""
+        if preferences is None:
+            preferences = UserPreferences.get_active_preferences()
+        
+        self.preferences = preferences
+        self.user_skills = self._build_skills_dict()
+        self.location_preferences = self._build_location_preferences()
+        self.salary_target = self._build_salary_target()
+        self.company_type_preferences = self._build_company_preferences()
+        self.experience_preferences = self._build_experience_preferences()
+        
+        # Scoring weights from preferences
+        self.weights = {
+            'skills': self.preferences.skills_weight / 100,
+            'experience': self.preferences.experience_weight / 100,
+            'location': self.preferences.location_weight / 100,
+            'salary': self.preferences.salary_weight / 100,
+            'company': self.preferences.company_weight / 100
+        }
+    
+    def _build_skills_dict(self) -> Dict[str, float]:
+        """Build skills dictionary with equal weights from user preferences"""
+        skills_dict = {}
+        if self.preferences.skills:
+            # Give equal weight to all user skills
+            base_weight = 100 / len(self.preferences.skills)
+            for skill in self.preferences.skills:
+                skills_dict[skill] = base_weight
+        return skills_dict
+    
+    def _build_location_preferences(self) -> Dict[str, float]:
+        """Build location preferences from user settings"""
+        location_prefs = {}
+        
+        # Add preferred locations
+        for location in self.preferences.preferred_locations:
+            if location.lower() == 'remote':
+                location_prefs['Remote'] = 10
+            else:
+                location_prefs[location] = 8
+        
+        # Add location types with different weights
+        for loc_type in self.preferences.location_types:
+            if loc_type == 'remote':
+                location_prefs['Remote'] = 10
+            elif loc_type == 'hybrid':
+                location_prefs['Hybrid'] = 8
+            elif loc_type == 'onsite':
+                # Add bonus for preferred locations if onsite
+                for location in self.preferences.preferred_locations:
+                    if location.lower() not in ['remote', 'hybrid']:
+                        location_prefs[location] = 6
+        
+        return location_prefs
+    
+    def _build_salary_target(self) -> Dict[str, int]:
+        """Build salary target from user preferences"""
+        return {
+            'min_acceptable': self.preferences.min_salary,
+            'target_min': self.preferences.min_salary,
+            'target_max': self.preferences.max_salary,
+            'dream': int(self.preferences.max_salary * 1.3)  # 30% above max
+        }
+    
+    def _build_company_preferences(self) -> Dict[str, float]:
+        """Build company type preferences"""
+        company_prefs = {}
+        if self.preferences.preferred_companies:
+            base_score = 8
+            for company_type in self.preferences.preferred_companies:
+                company_prefs[company_type.lower()] = base_score
+        
+        # Default for unknown companies
+        company_prefs['unknown'] = 3
+        return company_prefs
+    
+    def _build_experience_preferences(self) -> Dict[str, float]:
+        """Build experience level preferences based on user's target range"""
+        exp_prefs = {}
+        min_exp = self.preferences.min_experience_years
+        max_exp = self.preferences.max_experience_years
+        
+        # Score experience levels based on user's range
+        if 'entry' in self.preferences.experience_levels:
+            exp_prefs['entry'] = 15
+        if 'junior' in self.preferences.experience_levels:
+            exp_prefs['junior'] = 12
+        if 'mid' in self.preferences.experience_levels:
+            exp_prefs['mid'] = 8
+        if 'senior' in self.preferences.experience_levels:
+            exp_prefs['senior'] = 5
+        else:
+            # Penalty for senior if not preferred
+            exp_prefs['senior'] = -20
             
-            # Secondary skills (medium weight)
-            'TypeScript': 10,
-            'JavaScript': 10,
-            'Node.js': 12,
-            'Express': 10,
-            'AWS': 12,
-            'Docker': 12,
-            'Git': 8,
-            'CI/CD': 10,
-            
-            # Additional skills (lower weight)
-            'HTML': 5,
-            'CSS': 5,
-            'TailwindCSS': 8,
-            'Jest': 8,
-            'OAuth': 8,
-            'Pandas': 10,
-            'NumPy': 8,
-            'Flask': 12,
-            'Celery': 10,
-            'Redis': 10,
-            'Firebase': 8,
-            'SQL': 12,
-            'MongoDB': 10,
-            'REST API': 12,
-            'GraphQL': 8,
-            'Linux': 8,
-            'Kubernetes': 10
-        }
+        # Defaults for levels not specified
+        exp_prefs.setdefault('lead', -30)
+        exp_prefs.setdefault('manager', -40)
         
-        self.location_preferences = {
-            'New York': 5,
-            'NYC': 5,
-            'Manhattan': 5,
-            'Brooklyn': 4,
-            'Queens': 4,
-            'Bronx': 3,
-            'Staten Island': 2,
-            'Jersey City': 3,
-            'Hoboken': 3,
-            'Remote': 8,
-            'Hybrid': 6
-        }
-        
-        self.salary_target = {
-            'min_acceptable': 70000,
-            'target_min': 80000,
-            'target_max': 120000,
-            'dream': 150000
-        }
-        
-        self.company_type_preferences = {
-            'startup': 8,
-            'tech': 5,
-            'healthcare': 7,
-            'fintech': 7,
-            'unknown': 0
-        }
-        
-        self.experience_preferences = {
-            'entry': 15,
-            'junior': 12,
-            'mid': 5,
-            'senior': -30,  # Negative score for senior positions
-            'lead': -50,
-            'manager': -50
-        }
+        return exp_prefs
     
     def calculate_skills_score(self, job: Job) -> Dict[str, float]:
         """Calculate skills match score for a job"""
@@ -205,32 +229,26 @@ class JobScorer:
         salary_score = self.calculate_salary_score(job)
         company_score = self.calculate_company_score(job)
         
-        # Weights for different components
-        weights = {
-            'skills': 0.45,      # 45% - Most important
-            'experience': 0.25,   # 25% - Very important for entry-level
-            'location': 0.15,     # 15%
-            'salary': 0.10,       # 10%
-            'company': 0.05       # 5%
-        }
-        
+        # Use dynamic weights from user preferences
         # Calculate weighted total
         total_score = (
-            skills_score * weights['skills'] +
-            experience_score * weights['experience'] +
-            location_score * weights['location'] +
-            salary_score * weights['salary'] +
-            company_score * weights['company']
+            skills_score * self.weights['skills'] +
+            experience_score * self.weights['experience'] +
+            location_score * self.weights['location'] +
+            salary_score * self.weights['salary'] +
+            company_score * self.weights['company']
         )
         
-        # Determine recommendation flags
+        # Determine recommendation flags using dynamic thresholds
+        min_threshold = self.preferences.min_job_score_threshold
+        
         meets_minimum = (
             skills_score >= 30 and  # At least 30% skill match
             experience_score >= 0 and  # Not senior level
-            total_score >= 40  # Minimum total score
+            total_score >= min_threshold  # User's minimum score threshold
         )
         
-        recommended = total_score >= 70 and meets_minimum
+        recommended = total_score >= (min_threshold + 20) and meets_minimum
         
         return {
             'skills_score': skills_score,
