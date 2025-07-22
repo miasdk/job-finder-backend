@@ -1,18 +1,17 @@
 # Personal Job Finder
 
-A fully automated Django application for personal job search that scrapes, scores, and emails the best job matches based on your specific skills and preferences. **Now with beautiful UI inspired by your portfolio design!**
+A fully automated Django application for personal job search that scrapes, scores, and emails the best job matches based on my specific skills and preferences. 
+## Features
 
-## 🎯 Features
+- **Fully Automated**: Complete background processing with Celery + Redis
+- **Modern UI**: Clean, minimalist design inspired by your portfolio using Tailwind CSS
+- **Smart Scoring**: AI-powered job scoring based on your skills, experience, and preferences  
+- **Daily Digests**: Automated email reports at 7 PM EST with top matches
+- **Advanced Search**: Filter by score, location, experience level, and more
+- **Analytics Dashboard**: Track job statistics and email history
+- **Real-time Updates**: Live job scoring and instant search results
 
-- **✅ Fully Automated**: Complete background processing with Celery + Redis
-- **🎨 Modern UI**: Clean, minimalist design inspired by your portfolio using Tailwind CSS
-- **🤖 Smart Scoring**: AI-powered job scoring based on your skills, experience, and preferences  
-- **📧 Daily Digests**: Automated email reports at 7 PM EST with top matches
-- **🔍 Advanced Search**: Filter by score, location, experience level, and more
-- **📊 Analytics Dashboard**: Track job statistics and email history
-- **⚡ Real-time Updates**: Live job scoring and instant search results
-
-## 🏗️ Architecture
+## Architecture
 
 - **Backend**: Django 4.2.7 with SQLite (PostgreSQL ready)
 - **Task Queue**: Celery with Redis broker for background automation
@@ -21,7 +20,7 @@ A fully automated Django application for personal job search that scrapes, score
 - **Frontend**: Tailwind CSS + Inter font for modern minimalist design
 - **Automation**: Scheduled tasks for 24/7 operation
 
-## 📊 Scoring Algorithm
+## Scoring Algorithm
 
 Jobs are scored (0-100) based on:
 - **Skills Match (45%)**: Python, Django, PostgreSQL, React, etc.
@@ -30,7 +29,7 @@ Jobs are scored (0-100) based on:
 - **Salary (10%)**: $70K-$120K target range
 - **Company Type (5%)**: Startups, tech companies, healthcare, fintech
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Full Automation (Recommended)
 ```bash
@@ -45,11 +44,11 @@ EMAIL_HOST_PASSWORD=your-gmail-app-password
 ./start_automation.sh
 ```
 
-**That's it!** The system will:
-- ✅ Set up database and migrations
-- ✅ Configure scheduled tasks
-- ✅ Start background workers
-- ✅ Launch web interface at http://localhost:8000
+The system will:
+- Set up database and migrations
+- Configure scheduled tasks
+-  Start background workers
+- Launch web interface at http://localhost:8000
 
 ### Option 2: Manual Setup
 ```bash
@@ -70,21 +69,21 @@ python manage.py runserver
 ./stop_automation.sh
 ```
 
-## 📧 Email Setup
+## Email Setup
 
 To receive daily job digests:
 1. Set up Gmail App Password
 2. Update `.env` with your credentials
 3. Test with: `python manage.py send_digest --force`
 
-## 🔧 Management Commands
+## Management Commands
 
 - `python manage.py create_sample_jobs` - Create test jobs
 - `python manage.py score_jobs` - Score existing jobs
 - `python manage.py send_digest` - Send email digest
 - `python manage.py scrape_jobs --source indeed --limit 10` - Scrape jobs (when working)
 
-## 🎨 User Profile (Configured For)
+## User Profile (Configured For)
 
 **Skills**: Python, Django, PostgreSQL, React, JavaScript, AWS, Docker, etc.
 **Experience**: Entry-level to Junior (0-2 years)
@@ -92,7 +91,7 @@ To receive daily job digests:
 **Salary**: $70K-$120K target range
 **Email**: miariccidev@gmail.com
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 job_finder/
@@ -108,7 +107,7 @@ job_finder/
 └── requirements.txt      # Python dependencies
 ```
 
-## 🔮 Roadmap
+##  Roadmap
 
 ### High Priority
 - [ ] Fix feedparser compatibility with Python 3.13
@@ -128,7 +127,7 @@ job_finder/
 - [ ] Advanced filtering
 - [ ] Mobile app
 
-## 🛠️ Technical Notes
+##  Technical Notes
 
 - **Database**: Currently using SQLite, PostgreSQL configuration ready
 - **Python Version**: 3.13 (some compatibility issues with feedparser)
@@ -136,30 +135,29 @@ job_finder/
 - **Scoring**: Weighted algorithm focusing on entry-level positions
 - **Email**: HTML + plain text versions
 
-## 📝 Current Status
+##  Current Status
 
-✅ **Fully Completed**:
-- ✅ Django project with full Celery/Redis automation
-- ✅ Beautiful UI matching your portfolio aesthetic
-- ✅ Advanced database models with comprehensive job data
-- ✅ Sophisticated scoring algorithm (54.3/100 top score achieved!)
-- ✅ Modern web interface with Tailwind CSS design
-- ✅ Automated email digest system with HTML templates  
-- ✅ **FIXED**: Python 3.13 compatibility (custom RSS parser)
-- ✅ Background task automation with Celery
-- ✅ Scheduled daily scraping (9 AM EST) and emails (7 PM EST)
-- ✅ 15 sample jobs created and scored successfully
-- ✅ Complete automation scripts for one-command startup
+ **Fully Completed**:
+-  Django project with full Celery/Redis automation
+- Advanced database models with comprehensive job data
+- Sophisticated scoring algorithm (54.3/100 top score achieved!)
+-  Modern web interface with Tailwind CSS design
+- Automated email digest system with HTML templates  
+- Python 3.13 compatibility (custom RSS parser)
+- Background task automation with Celery
+- Scheduled daily scraping (9 AM EST) and emails (7 PM EST)
+- 15 sample jobs created and scored successfully
+- Complete automation scripts for one-command startup
 
-🎯 **System Status**: **FULLY OPERATIONAL**
-- 📊 **15 active jobs** in database with scores ranging 47.6-54.3
-- 🤖 **5 automated background tasks** configured and ready
-- 📧 **Email digest system** configured for miariccidev@gmail.com
-- 🎨 **Modern UI** with your portfolio's minimalist aesthetic
+**System Status**: 
+- **15 active jobs** in database with scores ranging 47.6-54.3
+- **5 automated background tasks** configured and ready
+- **Email digest system** configured for miariccidev@gmail.com
+- **Modern UI** with your portfolio's minimalist aesthetic
 
-🚀 **Ready to Use**: Just run `./start_automation.sh` and you're live!
+**Ready to Use**: Just run `./start_automation.sh` and you're live!
 
-## 💡 Usage Tips
+## Usage Tips
 
 - Run `python manage.py score_jobs --rescore` to update all job scores
 - Use `--min-score 80` filter to see only top matches
