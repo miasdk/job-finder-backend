@@ -11,11 +11,18 @@ logger = logging.getLogger('jobs')
 class BaseScraper(ABC):
     """Base class for job scrapers"""
     
-    def __init__(self):
+    def __init__(self, user_preferences=None):
         self.session = requests.Session()
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         })
+        
+        # Load user preferences if not provided
+        if user_preferences is None:
+            from ..models import UserPreferences
+            user_preferences = UserPreferences.get_active_preferences()
+        
+        self.user_preferences = user_preferences
     
     @abstractmethod
     def scrape_jobs(self, search_terms: List[str], location: str = "New York, NY") -> List[Dict]:
@@ -23,14 +30,10 @@ class BaseScraper(ABC):
         pass
     
     def extract_skills_from_text(self, text: str) -> List[str]:
-        """Extract technical skills from job description"""
-        # User's skills for matching
-        user_skills = [
-            'Python', 'Django', 'Django REST Framework', 'PostgreSQL', 'React', 
-            'Next.js', 'TypeScript', 'JavaScript', 'Node.js', 'Express', 'HTML', 
-            'CSS', 'TailwindCSS', 'AWS', 'Docker', 'Git', 'CI/CD', 'Jest', 
-            'OAuth', 'Pandas', 'NumPy', 'Flask', 'Celery', 'Redis', 'Firebase', 
-            'SQL', 'MongoDB', 'REST API', 'GraphQL', 'Linux', 'Kubernetes'
+        """Extract technical skills from job description using user's skill set"""
+        # Use user's skills from preferences
+        user_skills = self.user_preferences.skills if self.user_preferences.skills else [
+            'Python', 'Django', 'PostgreSQL', 'React', 'JavaScript', 'HTML', 'CSS', 'Git'
         ]
         
         found_skills = []
@@ -43,6 +46,32 @@ class BaseScraper(ABC):
                 found_skills.append(skill)
         
         return found_skills
+    
+    def get_search_terms(self) -> List[str]:
+        """Get search terms from user preferences"""
+        terms = []
+        
+        # Add job titles from preferences
+        if self.user_preferences.job_titles:
+            terms.extend(self.user_preferences.job_titles)
+        
+        # Add primary skills as search terms
+        if self.user_preferences.skills:
+            # Include top skills in search
+            primary_skills = self.user_preferences.skills[:3]  # Top 3 skills
+            terms.extend(primary_skills)
+        
+        # Default search terms if none specified
+        if not terms:
+            terms = ['Python Developer', 'Django Developer', 'Backend Developer']
+        
+        return terms
+    
+    def get_locations(self) -> List[str]:
+        """Get preferred locations from user preferences"""
+        if self.user_preferences.preferred_locations:
+            return self.user_preferences.preferred_locations
+        return ['New York', 'Remote']
     
     def extract_salary_info(self, text: str) -> Dict[str, Optional[int]]:
         """Extract salary information from job description"""
