@@ -255,3 +255,20 @@ class UserPreferences(models.Model):
                 preferred_companies=["startup", "tech", "healthcare", "fintech"]
             )
         return prefs
+    
+    def save(self, *args, **kwargs):
+        """Override save to trigger job refresh when preferences change"""
+        # Check if this is an update to existing preferences
+        is_update = self.pk is not None
+        
+        super().save(*args, **kwargs)
+        
+        # Trigger job refresh if preferences were updated and auto-scraping is enabled
+        if is_update and self.auto_scrape_enabled:
+            try:
+                # Import here to avoid circular imports
+                from .tasks_enhanced import user_preference_trigger_task
+                user_preference_trigger_task.delay()
+            except ImportError:
+                # Fallback if enhanced tasks not available
+                pass
