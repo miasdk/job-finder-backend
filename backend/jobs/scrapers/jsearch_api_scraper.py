@@ -120,13 +120,13 @@ class JSearchAPIScraper(BaseScraper):
                     salary_max = salary_max * 40 * 52 if salary_max else None
             
             # Extract location and determine type
-            location = job_data.get('job_city', 'Unknown')
+            location = job_data.get('job_city') or 'Unknown'
             if job_data.get('job_state'):
                 location = f"{location}, {job_data.get('job_state')}"
             
             # Determine location type from job data
-            description = job_data.get('job_description', '')
-            job_title = job_data.get('job_title', '')
+            description = job_data.get('job_description') or ''
+            job_title = job_data.get('job_title') or ''
             location_type = self.determine_location_type(job_title, description, location)
             
             # Extract skills from description

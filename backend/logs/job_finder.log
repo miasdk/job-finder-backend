@@ -658,3 +658,13 @@ Scored job 'Customer Support Manager United States' with total score: 1.9
 Scored job 'Golang Engineer' with total score: 1.9
 Scored job 'Golang Engineer' with total score: 1.9
 Scored job 'Python Job Board' with total score: 2.1
+JSearch API: Searching for ['python developer'] in ['Remote']
+Error processing JSearch job: 'NoneType' object has no attribute 'lower'
+JSearch: 1 jobs for 'python developer' in 'Remote'
+JSearch API: Found 1 unique jobs
+JSearch API: Searching for ['software engineer'] in ['Remote']
+JSearch: 10 jobs for 'software engineer' in 'Remote'
+JSearch API: Found 10 unique jobs
+Adzuna API: Searching for ['software engineer'] in ['Remote']
+Adzuna: 20 jobs for 'software engineer' in 'Remote'
+Adzuna API: Found 20 unique jobs
