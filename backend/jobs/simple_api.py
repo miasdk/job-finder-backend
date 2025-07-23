@@ -7,11 +7,14 @@ from django.views.decorators.http import require_http_methods
 from django.core.paginator import Paginator
 from django.db.models import Q
 import json
+import logging
 
 from .models import Job, JobScore, Company, EmailDigest, UserPreferences
 from django.core.management import call_command
 import io
 import sys
+
+logger = logging.getLogger(__name__)
 
 
 @require_http_methods(["GET"])
@@ -305,9 +308,16 @@ def update_user_preferences(request):
         if 'email_frequency' in data:
             prefs.email_frequency = data['email_frequency']
         if 'email_time' in data:
-            from datetime import time
-            hour, minute = map(int, data['email_time'].split(':'))
-            prefs.email_time = time(hour, minute)
+            try:
+                from datetime import time
+                time_str = str(data['email_time']).strip()
+                if ':' in time_str:
+                    hour, minute = map(int, time_str.split(':'))
+                    prefs.email_time = time(hour, minute)
+                else:
+                    logger.warning(f"Invalid email_time format: {time_str}")
+            except (ValueError, TypeError) as e:
+                logger.warning(f"Failed to parse email_time '{data.get('email_time')}': {e}")
         if 'auto_scrape_enabled' in data:
             prefs.auto_scrape_enabled = data['auto_scrape_enabled']
         if 'scrape_frequency_hours' in data:
@@ -320,22 +330,24 @@ def update_user_preferences(request):
         # Force immediate rescoring of jobs with new preferences
         try:
             from .scoring import JobScorer
-            from .models import Job
             
             # Get all jobs and rescore them immediately
             scorer = JobScorer(prefs)
-            jobs_to_rescore = Job.objects.all()
+            jobs_to_rescore = Job.objects.filter(is_active=True)[:100]  # Limit to 100 for immediate scoring
             
             rescored_count = 0
             for job in jobs_to_rescore:
                 try:
                     job_score = scorer.score_job(job)
                     rescored_count += 1
-                except Exception:
+                except Exception as scoring_error:
+                    logger.warning(f"Failed to score job {job.id}: {scoring_error}")
                     continue
             
             logger.info(f"Immediately rescored {rescored_count} jobs with updated preferences")
             
+        except ImportError as e:
+            logger.warning(f"Could not import JobScorer, skipping immediate rescoring: {e}")
         except Exception as e:
             logger.warning(f"Immediate rescoring failed, relying on background task: {e}")
         
