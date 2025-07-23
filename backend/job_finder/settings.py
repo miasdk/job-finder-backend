@@ -175,6 +175,7 @@ OPENAI_API_KEY = config('OPENAI_API_KEY', default='')
 # Job API Configuration
 ADZUNA_APP_ID = config('ADZUNA_APP_ID', default='demo_app_id')
 ADZUNA_API_KEY = config('ADZUNA_API_KEY', default='demo_api_key')
+JSEARCH_API_KEY = config('JSEARCH_API_KEY', default='demo_api_key')
 
 # Cache Configuration
 CACHES = {
