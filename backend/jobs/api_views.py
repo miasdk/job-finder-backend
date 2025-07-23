@@ -40,7 +40,7 @@ class JobListAPIView(generics.ListAPIView):
         # Filters
         location = self.request.query_params.get('location')
         if location:
-            queryset = queryset.filter(location_type=location)
+            queryset = queryset.filter(location__icontains=location)
         
         experience_level = self.request.query_params.get('experience_level')
         if experience_level:
