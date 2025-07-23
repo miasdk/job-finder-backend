@@ -327,13 +327,13 @@ def update_user_preferences(request):
         
         prefs.save()
         
-        # Force immediate rescoring of jobs with new preferences
+        # Light immediate rescoring - just top 20 jobs for instant feedback
         try:
             from .scoring import JobScorer
             
-            # Get all jobs and rescore them immediately
+            # Only rescore top 20 recent jobs for immediate feedback
             scorer = JobScorer(prefs)
-            jobs_to_rescore = Job.objects.filter(is_active=True)[:100]  # Limit to 100 for immediate scoring
+            jobs_to_rescore = Job.objects.filter(is_active=True).order_by('-posted_date')[:20]
             
             rescored_count = 0
             for job in jobs_to_rescore:
@@ -344,12 +344,12 @@ def update_user_preferences(request):
                     logger.warning(f"Failed to score job {job.id}: {scoring_error}")
                     continue
             
-            logger.info(f"Immediately rescored {rescored_count} jobs with updated preferences")
+            logger.info(f"Immediately rescored {rescored_count} recent jobs with updated preferences")
             
         except ImportError as e:
             logger.warning(f"Could not import JobScorer, skipping immediate rescoring: {e}")
         except Exception as e:
-            logger.warning(f"Immediate rescoring failed, relying on background task: {e}")
+            logger.warning(f"Immediate rescoring failed: {e}")
         
         # Return updated preferences
         return JsonResponse({
