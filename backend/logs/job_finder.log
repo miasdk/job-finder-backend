@@ -1,1 +1,660 @@
 Scored job 'Python Job Board' with total score: 2.1
+Adzuna API: Searching for ['python'] in ['Remote']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=python&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['python', 'django'] in ['New York']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=python&where=New+York&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=django&where=New+York&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['python', 'django'] in ['San Francisco']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=python&where=San+Francisco&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=django&where=San+Francisco&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['python', 'django'] in ['Remote']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=python&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=django&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['python', 'django'] in ['USA']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=python&where=USA&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=django&where=USA&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['software engineer', 'backend'] in ['New York']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=software+engineer&where=New+York&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=backend&where=New+York&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['software engineer', 'backend'] in ['San Francisco']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=software+engineer&where=San+Francisco&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=backend&where=San+Francisco&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['software engineer', 'backend'] in ['Remote']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=software+engineer&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=backend&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['software engineer', 'backend'] in ['USA']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=software+engineer&where=USA&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=backend&where=USA&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['full stack', 'web developer'] in ['New York']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=full+stack&where=New+York&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=web+developer&where=New+York&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['full stack', 'web developer'] in ['San Francisco']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=full+stack&where=San+Francisco&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=web+developer&where=San+Francisco&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['full stack', 'web developer'] in ['Remote']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=full+stack&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=web+developer&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['full stack', 'web developer'] in ['USA']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=full+stack&where=USA&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=web+developer&where=USA&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['javascript', 'react'] in ['New York']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=javascript&where=New+York&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=react&where=New+York&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['javascript', 'react'] in ['San Francisco']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=javascript&where=San+Francisco&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=react&where=San+Francisco&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['javascript', 'react'] in ['Remote']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=javascript&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=react&where=Remote&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['javascript', 'react'] in ['USA']
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=javascript&where=USA&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API request failed: 401 Client Error: Unauthorized for url: https://api.adzuna.com/v1/api/jobs/us/search?app_id=demo_app_id&app_key=demo_api_key&what=react&where=USA&results_per_page=20&sort_by=date&content-type=application%2Fjson
+Adzuna API: Found 0 unique jobs
+Adzuna API: Searching for ['python'] in ['Remote']
+Adzuna: 20 jobs for 'python' in 'Remote'
+Adzuna API: Found 20 unique jobs
+Adzuna API: Searching for ['python', 'django'] in ['New York']
+Adzuna: 20 jobs for 'python' in 'New York'
+Adzuna: 20 jobs for 'django' in 'New York'
+Adzuna API: Found 37 unique jobs
+Adzuna API: Searching for ['python', 'django'] in ['San Francisco']
+Adzuna: 20 jobs for 'python' in 'San Francisco'
+Adzuna: 20 jobs for 'django' in 'San Francisco'
+Adzuna API: Found 35 unique jobs
+Adzuna API: Searching for ['python', 'django'] in ['Remote']
+Adzuna: 20 jobs for 'python' in 'Remote'
+Adzuna: 20 jobs for 'django' in 'Remote'
+Adzuna API: Found 40 unique jobs
+Adzuna API: Searching for ['python', 'django'] in ['USA']
+Adzuna: 20 jobs for 'python' in 'USA'
+Adzuna: 20 jobs for 'django' in 'USA'
+Adzuna API: Found 40 unique jobs
+Adzuna API: Searching for ['software engineer', 'backend'] in ['New York']
+Adzuna: 20 jobs for 'software engineer' in 'New York'
+Adzuna: 20 jobs for 'backend' in 'New York'
+Adzuna API: Found 34 unique jobs
+Adzuna API: Searching for ['software engineer', 'backend'] in ['San Francisco']
+Adzuna: 20 jobs for 'software engineer' in 'San Francisco'
+Adzuna: 20 jobs for 'backend' in 'San Francisco'
+Adzuna API: Found 34 unique jobs
+Adzuna API: Searching for ['software engineer', 'backend'] in ['Remote']
+Adzuna: 20 jobs for 'software engineer' in 'Remote'
+Adzuna: 20 jobs for 'backend' in 'Remote'
+Adzuna API: Found 36 unique jobs
+Adzuna API: Searching for ['software engineer', 'backend'] in ['USA']
+Adzuna: 20 jobs for 'software engineer' in 'USA'
+Adzuna: 20 jobs for 'backend' in 'USA'
+Adzuna API: Found 38 unique jobs
+Adzuna API: Searching for ['full stack', 'web developer'] in ['New York']
+Adzuna: 20 jobs for 'full stack' in 'New York'
+Adzuna: 20 jobs for 'web developer' in 'New York'
+Adzuna API: Found 36 unique jobs
+Adzuna API: Searching for ['full stack', 'web developer'] in ['San Francisco']
+Adzuna: 20 jobs for 'full stack' in 'San Francisco'
+Adzuna: 20 jobs for 'web developer' in 'San Francisco'
+Adzuna API: Found 37 unique jobs
+Adzuna API: Searching for ['full stack', 'web developer'] in ['Remote']
+Adzuna: 20 jobs for 'full stack' in 'Remote'
+Adzuna: 20 jobs for 'web developer' in 'Remote'
+Adzuna API: Found 39 unique jobs
+Adzuna API: Searching for ['full stack', 'web developer'] in ['USA']
+Adzuna: 20 jobs for 'full stack' in 'USA'
+Adzuna: 20 jobs for 'web developer' in 'USA'
+Adzuna API: Found 37 unique jobs
+Adzuna API: Searching for ['javascript', 'react'] in ['New York']
+Adzuna: 20 jobs for 'javascript' in 'New York'
+Adzuna: 20 jobs for 'react' in 'New York'
+Adzuna API: Found 27 unique jobs
+Adzuna API: Searching for ['javascript', 'react'] in ['San Francisco']
+Adzuna: 20 jobs for 'javascript' in 'San Francisco'
+Adzuna: 20 jobs for 'react' in 'San Francisco'
+Adzuna API: Found 35 unique jobs
+Adzuna API: Searching for ['javascript', 'react'] in ['Remote']
+Adzuna: 20 jobs for 'javascript' in 'Remote'
+Adzuna: 20 jobs for 'react' in 'Remote'
+Adzuna API: Found 30 unique jobs
+Adzuna API: Searching for ['javascript', 'react'] in ['USA']
+Adzuna: 20 jobs for 'javascript' in 'USA'
+Adzuna: 20 jobs for 'react' in 'USA'
+Adzuna API: Found 37 unique jobs
+Scored job 'Senior Product Manager AI' with total score: 3.1
+Scored job 'VP, Counterparty Credit Risk - Corporate and Investment Banking' with total score: 2.8
+Scored job 'Sr. Associate, Credit Risk - Implementation, Liberty Street, New York, NY' with total score: 2.8
+Scored job 'VP, Market Risk' with total score: 2.8
+Scored job 'Senior Software Engineer - Java' with total score: 1.3
+Scored job 'AI Engineer - Part Time / Contract' with total score: 4.3
+Scored job 'Staff Machine Learning & Backend Engineer' with total score: 1.6
+Scored job 'Associate Director, Software Engineering' with total score: 1.3
+Scored job 'Associate Director, Biostatistics' with total score: 1.3
+Scored job 'Senior Business Intelligence Analyst' with total score: 2.8
+Scored job 'Senior Associate, Data Analyst, Regulatory Solutions' with total score: 1.6
+Scored job 'System Administrator (VMWare/AWS)' with total score: 49.3
+Scored job 'Lead Software Engineer - Applied AIML Lead' with total score: 1.9
+Scored job 'Software Engineer' with total score: 4.3
+Scored job 'Principal Mainframe Software Engineer (COBOL, CICS, DB2/VSAM)' with total score: 1.9
+Scored job 'API Platform Lead' with total score: 1.3
+Scored job 'Cybersecurity Officer- Application Security' with total score: 1.3
+Scored job 'Vice President, Quantitative Developer (Python)' with total score: 1.3
+Scored job 'Digital Rotational Program - Associate' with total score: 6.3
+Scored job 'Engineering Manager' with total score: 2.8
+Scored job 'Senior Software Engineer, Full Stack' with total score: 1.3
+Scored job 'Engineering Manager' with total score: 2.8
+Scored job 'Engineering Manager' with total score: 1.3
+Scored job 'Head of Engineering' with total score: 1.3
+Scored job 'Senior Full Stack Engineer' with total score: 1.3
+Scored job 'Product Software Engineer' with total score: 3.1
+Scored job 'Web Developer' with total score: 4.3
+Scored job 'Senior Full Stack Engineer' with total score: 47.8
+Scored job 'Senior Software Engineer' with total score: 47.8
+Scored job 'Lead Full Stack Engineer' with total score: 1.3
+Scored job 'Software Engineer, Product' with total score: 4.3
+Scored job 'Senior Platform Engineer' with total score: 1.3
+Scored job 'Enterprise Solutions Consultant' with total score: 2.8
+Scored job 'Sr. Python Developer with AWS/Inperson Interview' with total score: 49.6
+Scored job 'Sr. Full-Stack Software Engineer' with total score: 5.8
+Scored job 'Senior Software Engineer - EMRS Apps STAR' with total score: 2.8
+Scored job 'Web Developer' with total score: 1.8
+Scored job 'Staff Software Engineer' with total score: 0.4
+Scored job 'Senior Customer Solutions Engineer - Dubai' with total score: 0.4
+Scored job 'Software Engineer' with total score: 4.9
+Scored job 'AI researcher' with total score: 1.9
+Scored job 'Associate GIS Developer' with total score: 0.4
+Scored job 'Manager, Software Engineer - Privacy' with total score: 1.9
+Scored job 'Security Operations Center Engineer' with total score: 3.4
+Scored job 'Data Analyst, Loss Forecasting, Budgeting & Automation' with total score: 3.4
+Scored job 'Lead Django Engineer' with total score: 1.9
+Scored job 'Senior Embedded Software Engineer' with total score: 0.4
+Scored job 'Edge Systems Reliability Engineer' with total score: 3.4
+Scored job 'Full Stack Developer' with total score: 0.4
+Scored job 'Software Engineer (L2)' with total score: 3.4
+Scored job 'Software Engineering Manager, Chrome Developer Infrastructure' with total score: 1.9
+Scored job 'Head of Engineering' with total score: 1.9
+Scored job 'Senior Manager, Detection Engineering' with total score: 1.9
+Scored job 'Senior Backend Software Engineer' with total score: 3.4
+Scored job 'AI Design Engineer - Fullstack' with total score: 1.9
+Scored job 'Staff Backend Software Engineer' with total score: 3.4
+Scored job 'Hardware Deployment Project Manager' with total score: 0.4
+Scored job 'Founding Software Engineer (AI Startup)' with total score: 1.9
+Scored job 'Staff Software Engineer, Full Stack' with total score: 0.4
+Scored job 'Staff Software Engineer' with total score: 1.9
+Scored job 'Sr IS Software Engineer' with total score: 0.4
+Scored job 'Software Engineer, API' with total score: 0.4
+Scored job 'Full Stack Developer' with total score: 0.9
+Scored job 'US Tech Consultant / Senior Consultant - Insights and Analytics' with total score: 0.4
+Scored job 'Software Engineer' with total score: 1.9
+Scored job 'Software Engineer' with total score: 3.4
+Scored job 'Sr IS Software Engineer' with total score: 1.9
+Scored job 'Full-Stack Software Engineer - Growth (Mid-level or above)' with total score: 4.9
+Scored job 'Full Stack Engineer - Collaboration Technologies' with total score: 0.4
+Scored job 'Fullstack Software Engineer' with total score: 3.4
+Scored job 'Software Engineer, Back end (Fire Opal)' with total score: 1.9
+Scored job 'Software Engineer, Fullstack' with total score: 4.9
+Scored job 'Infrastructure Applications Engineer' with total score: 46.9
+Scored job 'Senior Manager Data Scientist' with total score: 3.4
+Scored job 'Sr Manager, Biostatistics' with total score: 3.4
+Scored job 'Advisory Machine Learning Engineer' with total score: 3.4
+Scored job 'People Analytics Partner' with total score: 1.9
+Scored job 'Technical Operations Engineer' with total score: 2.4
+Scored job 'Staff, Software Engineer (L4)' with total score: 3.4
+Scored job 'Cloud Security Engineer' with total score: 6.4
+Scored job 'Senior UX Researcher, Artificial Intelligence (AI)' with total score: 1.9
+Scored job 'Senior Data Engineer' with total score: 1.9
+Scored job 'Software Engineer (L3)' with total score: 4.9
+Scored job 'Staff AI Researcher- Generative AI' with total score: 1.9
+Scored job 'Sr. Software Engineer - HRMS Tools & Tech' with total score: 4.9
+Scored job 'Platform Engineer' with total score: 4.9
+Scored job '*Manager Data Solution' with total score: 1.9
+Scored job 'Senior AWS DevOps Engineer' with total score: 48.4
+Scored job 'Lead Cloud AWS Network Engineer' with total score: 46.9
+Scored job 'Senior Cloud Operations Engineer' with total score: 3.4
+Scored job 'Staff Database Administrator' with total score: 1.9
+Scored job 'Associate Research Scientist' with total score: 1.9
+Scored job 'Sr Technical Product Owner' with total score: 3.4
+Scored job 'Systems Analyst' with total score: 1.9
+Scored job 'Support Engineer' with total score: 1.9
+Scored job 'Senior Backend Engineer' with total score: 3.4
+Scored job 'Software Development Engineer' with total score: 4.9
+Scored job 'Senior Engineer Manager, Provider & Employer Products' with total score: 3.4
+Scored job 'Lead API Engineer' with total score: 1.9
+Scored job 'Partner Solutions Engineer' with total score: 1.9
+Scored job 'Lead Machine Learning & DevOps Engineer' with total score: 48.4
+Scored job 'Senior Software Engineer (Full-stack)' with total score: 1.9
+Scored job 'Full Stack Software Engineer' with total score: 1.9
+Scored job 'Software Engineer- Backend' with total score: 4.9
+Scored job 'Lead iOS Software Engineer, EverHealth' with total score: 3.4
+Scored job 'Staff Backend Software Engineer' with total score: 3.4
+Scored job 'Backend Software Engineer (Python)' with total score: 4.9
+Scored job 'Full Stack Engineer: Human Systems (Biometrics)' with total score: 6.4
+Scored job 'Senior Data Platform Engineer' with total score: 1.9
+Scored job 'Software Engineer' with total score: 1.9
+Scored job 'Engineer' with total score: 4.9
+Scored job 'Senior/Staff Software Engineer- Back End, API Team' with total score: 1.9
+Scored job 'SDWAN Security Technical Leader' with total score: 3.4
+Scored job 'Data Analyst' with total score: 3.4
+Scored job 'Senior Consultant - Life Sciences Advisory - Data Scientist (Pharma & Biotech)' with total score: 0.4
+Scored job 'RPA Manager' with total score: 0.4
+Scored job 'MS Database Administrator (Maximo Database Administrator)' with total score: 4.9
+Scored job 'Software QA, Gen AI' with total score: 4.9
+Scored job 'Managing Consultant - Life Sciences Advisory - Strategy & Data Analytics (Pharma & Biotech)' with total score: 3.4
+Scored job 'Senior Full Stack Software Engineer' with total score: 1.6
+Scored job 'VP, Counterparty Credit Risk - Corporate and Investment Banking' with total score: 2.8
+Scored job 'Pricing & Credit Model Analyst' with total score: 0.4
+Scored job 'Senior Risk Model Validation Analyst' with total score: 1.9
+Scored job 'Sr. Associate, Credit Risk - Implementation, Liberty Street, New York, NY' with total score: 2.8
+Scored job 'Senior PPNR Model Development Analyst' with total score: 1.9
+Scored job 'VP, Market Risk' with total score: 2.8
+Scored job 'Transmission Planning Engineer' with total score: 4.6
+Scored job 'Experienced Guidance Navigation and Control (GNC) Engineer' with total score: 0.4
+Scored job 'Electrified Powertrain Application Calibrator' with total score: 3.4
+Scored job 'GIS Spatial Analyst (5 years) (Senior Level)' with total score: 0.4
+Scored job 'Software Manager' with total score: 0.4
+Scored job 'Senior Software Engineer' with total score: 0.4
+Scored job 'Senior Software Quality Assurance Engineer' with total score: 0.4
+Scored job 'Software Developer (Middleware, Python, Django, Jav' with total score: 48.4
+Scored job 'Automation Engineer' with total score: 3.4
+Scored job 'Lead Software Engineer' with total score: 1.9
+Scored job 'Senior Backend Developer (Data/API)' with total score: 0.4
+Scored job 'AWS Cloud Engineer' with total score: 49.6
+Scored job 'Senior Engineers' with total score: 1.9
+Scored job 'Sr. Software Developer' with total score: 3.4
+Scored job 'Full Stack Developer - MUST BE A US PERSON' with total score: 0.4
+Scored job 'FullStack Engineer' with total score: 3.4
+Scored job 'Computer Science/Computer Engineering Intern' with total score: 0.4
+Scored job 'Senior Fullstack Developer - Python  React - Remote, Latin America' with total score: 0.4
+Scored job 'Engineering Manager (Closes 8/7/2025)' with total score: 0.4
+Scored job 'Frontend Software Engineer' with total score: 5.8
+Scored job 'Software Engineer Manager, Node Platform Infrastructure' with total score: 2.8
+Scored job 'Software Engineering Team Manager, Activation' with total score: 2.8
+Scored job 'Engineering Manager, Web Platforms' with total score: 2.8
+Scored job 'Lead Software Engineer, Back End' with total score: 2.8
+Scored job 'Technical Program Manager' with total score: 1.9
+Scored job 'Principal Product Manager' with total score: 2.8
+Scored job 'Product Design Intern' with total score: 4.3
+Scored job 'Senior Lead Software Engineer - Java, AWS, Kafka' with total score: 46.9
+Scored job 'Software Engineer III - GMI Next Gen Technology' with total score: 3.4
+Scored job 'Travel Radiology Technologist - $3,160 per week' with total score: 4.9
+Scored job 'Quality Assurance Consultant V' with total score: 0.4
+Scored job 'Flutter Developer' with total score: 3.4
+Scored job 'Sales Specialist, Cloud BI' with total score: 4.9
+Scored job 'Axiom Developer - NJ or TX' with total score: 0.4
+Scored job 'Apps Dev Junior Programmer Analyst' with total score: 0.4
+Scored job 'Applications Development Sr Programmer Analyst' with total score: 0.4
+Scored job 'Java Backend Developer- AVP' with total score: 0.4
+Scored job 'Apps Dev Tech Lead Analyst' with total score: 0.4
+Scored job 'Node JS Backend Developer - Software Engineer Lead' with total score: 1.6
+Scored job 'Finance Integration Lead' with total score: 1.3
+Scored job 'Software Engineer, Level 3' with total score: 4.3
+Scored job 'Software Engineer, Systems' with total score: 4.3
+Scored job 'Manager II, Machine Learning Engineering - Ads Marketplace' with total score: 0.4
+Scored job 'Principal Product Manager' with total score: 1.9
+Scored job 'Senior Distributed Systems Engineer - Solana' with total score: 1.9
+Scored job 'Staff Software Engineer, Backend' with total score: 1.9
+Scored job 'Senior Software Engineer - London' with total score: 0.4
+Scored job 'Software Engineer - Network Services' with total score: 3.4
+Scored job 'Senior Software Engineer, C++' with total score: 1.9
+Scored job 'Software Engineer, Product' with total score: 4.9
+Scored job 'Engineering Manager' with total score: 0.4
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer, Product Experience' with total score: 1.9
+Scored job 'Senior Full-Stack Engineer' with total score: 1.9
+Scored job 'Vice President, Engineering' with total score: 1.9
+Scored job 'Software Engineer (Frontend)' with total score: 4.9
+Scored job 'React Engineer' with total score: 4.9
+Scored job 'Engineering Manager - Platform & Reliability' with total score: 46.9
+Scored job 'Director of Engineering - Platform & Reliability' with total score: 46.9
+Scored job 'Frontend Engineer' with total score: 3.4
+Scored job 'Product/Infrastructure Engineer' with total score: 3.4
+Scored job 'Full-stack Engineer' with total score: 3.4
+Scored job 'Senior Backend Software Engineer, IAM' with total score: 1.9
+Scored job 'Senior Director, Engineering, Analytics Data' with total score: 46.9
+Scored job 'Java Software Engineer III (Contact Center technologies) - REMOTE' with total score: 4.9
+Scored job 'Engineering Manager - Platform' with total score: 3.4
+Scored job 'Software Engineer, Android' with total score: 6.4
+Scored job 'Senior Associate Consultant, CLM' with total score: 1.9
+Scored job 'Optimizely Developer' with total score: 4.9
+Scored job 'Full Stack Software Engineer IV (Remote)' with total score: 1.9
+Scored job 'Vice President, Engineering' with total score: 3.4
+Scored job 'Director, Software Engineering (Remote)' with total score: 1.9
+Scored job 'IOS Software Engineer' with total score: 4.9
+Scored job 'Staff Software Engineer' with total score: 3.4
+Scored job 'Senior Software Engineer II' with total score: 1.9
+Scored job 'Software Engineer - Business Tools' with total score: 1.9
+Scored job 'VP, Robotics Software' with total score: 3.4
+Scored job 'Sr. Software Engineer - HRMS Tools & Tech' with total score: 4.9
+Scored job 'AWS Software Developer' with total score: 46.9
+Scored job 'Manager Software Engineering' with total score: 1.9
+Scored job 'Full Stack Software Engineer' with total score: 1.9
+Scored job 'Mgr Software Engineering' with total score: 3.4
+Scored job 'Lead Software Developer' with total score: 1.9
+Scored job 'Senior Software Engineer, CLIP' with total score: 1.9
+Scored job 'Technical Lead' with total score: 3.4
+Scored job 'Senior Software Engineer, Backend' with total score: 1.9
+Scored job 'Backend Streaming Video Specialist' with total score: 1.9
+Scored job 'Staff Software Engineer, SDKs' with total score: 3.4
+Scored job 'Senior Software Engineering Manager' with total score: 3.4
+Scored job 'Staff Software Engineer - Portfolio Experience' with total score: 3.4
+Scored job 'Senior Software Engineer, i18n Infrastructure' with total score: 1.9
+Scored job 'Senior Engineering Manager' with total score: 3.4
+Scored job 'QA Engineer, III' with total score: 4.9
+Scored job 'Senior Product Manager' with total score: 3.4
+Scored job 'Senior Software Engineer, Monetization Team (Fullstack or Backend)' with total score: 3.4
+Scored job 'Senior Software Developer - Fleet' with total score: 1.9
+Scored job 'Software Engineer - DevSecOps/Platforms Engineer' with total score: 49.9
+Scored job 'Machinist' with total score: 0.4
+Scored job 'Manager, Product Engineering' with total score: 3.4
+Scored job 'Exploitation Specialist/GDAT Software Engineer' with total score: 3.4
+Scored job 'Associate Project Manager' with total score: 0.4
+Scored job 'Diagnostics Engineer' with total score: 3.4
+Scored job 'Product Engineer' with total score: 3.4
+Scored job 'Software Application Engineer' with total score: 3.4
+Scored job 'Computer Network Defense Analyst' with total score: 3.4
+Scored job 'Software Engineer' with total score: 0.4
+Scored job 'Senior Autonomy Engineer' with total score: 1.9
+Scored job 'Database Administrator IV' with total score: 0.4
+Scored job 'Application Developer/Software Engineer (Intermediate Level | 4-6 years exp.)' with total score: 0.4
+Scored job 'Application Developer/Software Engineer (Senior Level |7 years exp.)' with total score: 0.4
+Scored job 'Java Software Engineer' with total score: 3.4
+Scored job 'Operations Specialist' with total score: 0.4
+Scored job 'Sr. Full Stack (P-085)' with total score: 3.4
+Scored job 'Travel Radiology Technologist - $3,160 per week' with total score: 4.9
+Scored job 'Lead Software Engineer / Solutions Architect' with total score: 0.4
+Scored job 'Backend Engineer' with total score: 0.9
+Scored job 'iOS/macOS Engineer, Evaluation' with total score: 0.4
+Scored job 'Client Software Engineer, Frontend Web/iOS/macOS - iCloud' with total score: 4.9
+Scored job 'Lead Backend Engineer' with total score: 0.4
+Scored job 'Sales Representative' with total score: 3.4
+Scored job 'Senior DevOps Engineer- Retail Engineering' with total score: 46.9
+Scored job 'Software Engineer III' with total score: 3.4
+Scored job 'Director / Architect of Adobe Launch & Analytics' with total score: 0.4
+Scored job 'AI& Java Back-End Engineer' with total score: 1.9
+Scored job 'Engineering Manager, Web Platforms' with total score: 2.8
+Scored job 'Head of Marketing' with total score: 2.8
+Scored job 'HR Platforms Support Lead - Technology Support Lead' with total score: 0.4
+Scored job 'Low Voltage Installer' with total score: 0.4
+Scored job 'C#/.NET Full Stack Developer' with total score: 1.3
+Scored job 'Senior Software Engineer, AI/ML GenAI, Google Cloud' with total score: 1.3
+Scored job 'Software Engineer III, Full Stack, Google Ads' with total score: 5.8
+Scored job 'Senior Software Engineering Technical Leader, AI - Security Platform' with total score: 3.1
+Scored job 'Quantitative Developer' with total score: 6.1
+Scored job 'Epic Radiant Analyst' with total score: 4.3
+Scored job 'Production Coordinator' with total score: 4.3
+Scored job 'MQ Support Engineer' with total score: 4.3
+Scored job 'Software Development Engr III ,, Amazonn Demand Tech Trader Experience' with total score: 1.3
+Scored job 'Staff Software Engineer, Backend' with total score: 2.8
+Scored job 'Director of Engineering, Air' with total score: 2.8
+Scored job 'Local Contract Nurse RN - Home Health Hospice - $49 per hour' with total score: 5.1
+Scored job 'Local Contract Radiology Technologist - $62 per hour' with total score: 0.4
+Scored job 'Applications Development Technical Lead Analyst - C13 - JERSEY CITY' with total score: 0.4
+Scored job 'Marketing Operations Associate' with total score: 6.3
+Scored job 'Local Contract Nurse RN - Cardiac Cath Lab [Apply Now]' with total score: 3.4
+Scored job '15h Left! Local Contract Radiology Technician' with total score: 3.4
+Scored job 'Front End Engineer' with total score: 4.3
+Scored job 'Associate Director, Software Engineering' with total score: 1.3
+Scored job 'Design Technologist, Amazon Brand Innovation Lab, Amazon Brand Innovation Lab' with total score: 4.3
+Scored job 'Software Engineer' with total score: 1.3
+Scored job 'React Developer' with total score: 3.4
+Scored job 'X Ray Technician' with total score: 1.3
+Scored job 'Associate ObjectScript Developer' with total score: 1.9
+Scored job 'Vice President, Digital' with total score: 2.8
+Scored job 'Account Manager - Remote' with total score: 1.3
+Scored job 'Industrial Designer' with total score: 3.4
+Scored job 'Data Engineer' with total score: 6.1
+Scored job 'Senior Full Stack Developer' with total score: 0.4
+Scored job 'Software Engineer: Product' with total score: 4.9
+Scored job 'Senior Software Engineer, Developer Growth and Experience (RippleX)' with total score: 1.9
+Scored job 'Software Engineering SMTS' with total score: 0.4
+Scored job 'Head of Engineering' with total score: 1.9
+Scored job 'Senior Product Designer, CloudKitchens - Mountain View' with total score: 0.4
+Scored job 'Senior Technical Recruiter' with total score: 0.4
+Scored job 'Founding Full-Stack Engineer' with total score: 4.9
+Scored job 'Senior Software Engineer, Infrastructure, Google Cloud Security and Privacy' with total score: 1.9
+Scored job 'Senior Designer (Design Systems) - Freelance' with total score: 0.4
+Scored job 'Senior Leader, Copy Editor, Digital Marketing' with total score: 0.4
+Scored job '1064-IS Programmer Analyst-Principal' with total score: 0.4
+Scored job 'Senior Account Manager - Remote' with total score: 0.4
+Scored job 'Marketing Manager, SEO' with total score: 0.4
+Scored job 'Account Manager - Remote' with total score: 0.4
+Scored job 'Account Director - Remote' with total score: 0.4
+Scored job 'WordPress and React Developer' with total score: 0.4
+Scored job 'Growth Marketing Manager, Web' with total score: 0.4
+Scored job 'Senior Salesforce Developer' with total score: 1.6
+Scored job 'Web Production Marketing Manager' with total score: 0.4
+Scored job 'Staff Software Engineer (Platform)' with total score: 1.9
+Scored job 'Founding Software Engineer (AI Startup)' with total score: 1.9
+Scored job 'Systems Development Engineer, ART19' with total score: 1.6
+Scored job 'Senior Bioinformatics Scientist' with total score: 1.9
+Scored job 'Growth & Community Manager' with total score: 1.9
+Scored job 'Senior Full Stack Web Developer' with total score: 1.9
+Scored job 'Power Platform Software Developer - Remote (WFH)' with total score: 4.9
+Scored job 'Staff Full Stack Engineer' with total score: 3.4
+Scored job 'Principal Software Engineer' with total score: 3.4
+Scored job 'Senior Full Stack Engineer' with total score: 3.4
+Scored job 'Software Engineer II (Full Stack)' with total score: 4.9
+Scored job 'Vice President, Data and Business Intelligence' with total score: 3.4
+Scored job 'CX Quality Assurance Manager' with total score: 1.9
+Scored job 'Staff Product Manager' with total score: 3.4
+Scored job 'Senior Software Engineer, Toast Tables' with total score: 1.9
+Scored job 'Cryptocurrency Accounting Engineer' with total score: 6.4
+Scored job 'Lead Software Engineer - Golang' with total score: 1.9
+Scored job 'Senior Software Engineer - Golang' with total score: 1.9
+Scored job 'Staff Software Engineer' with total score: 3.4
+Scored job 'Head of B2B Marketing' with total score: 1.9
+Scored job 'Account Manager' with total score: 1.9
+Scored job 'Sr. Manager, AEM Architecture & Development' with total score: 1.9
+Scored job 'Senior Software Engineer, Developer Experience' with total score: 3.4
+Scored job 'Director of Digital Strategy' with total score: 1.9
+Scored job 'Executive Director, College Study Abroad Marketing' with total score: 1.9
+Scored job 'Senior Solutions Engineer- East Coast (Portuguese Fluent)' with total score: 1.9
+Scored job 'Front-end Designer' with total score: 1.9
+Scored job 'Software Engineer' with total score: 1.9
+Scored job 'Trainer, Provider Enrollment' with total score: 1.9
+Scored job 'Applications Security Engineer' with total score: 4.9
+Scored job 'QA Engineer' with total score: 4.9
+Scored job 'Full Stack Data Collection Lead' with total score: 1.9
+Scored job 'EverPro - Senior Full Stack Engineer' with total score: 1.9
+Scored job 'Customer Service Representative' with total score: 4.9
+Scored job 'AWS Web Application Developer' with total score: 49.9
+Scored job 'Senior Solutions Engineer (SaaS, Automation Testing)' with total score: 45.4
+Scored job 'Full Stack Developer' with total score: 0.4
+Scored job 'GIS Systems Architect (5 years) (Senior Level)' with total score: 0.4
+Scored job 'Data Operations Manager - FULL TIME (100% Remote EST)' with total score: 0.4
+Scored job 'RFC Coordinator CVG 300 Shift 404' with total score: 3.4
+Scored job 'Forklift Operator' with total score: 0.4
+Scored job 'Node.js Software Engineer' with total score: 0.4
+Scored job 'Senior Software Engineer' with total score: 0.4
+Scored job 'Product Marketing Manager' with total score: 1.9
+Scored job 'Sr. Software Engineer (AI Systems & Infrastructure)' with total score: 1.9
+Scored job 'KINAXIS Developer' with total score: 0.4
+Scored job 'Marketing Specialist' with total score: 3.4
+Scored job 'Sr., Quality Prog Data Analyst' with total score: 3.4
+Scored job 'Lead Software Engineer (C++ AND Golang) On-site, Chicago, IL or Reston, VA' with total score: 0.4
+Scored job 'System Engineer I' with total score: 3.4
+Scored job 'Instructional Designer II' with total score: 0.4
+Scored job 'Software Development Manager' with total score: 0.4
+Scored job 'Web Developer' with total score: 3.4
+Scored job 'Senior Software Engineer' with total score: 0.4
+Scored job 'Part-Time Communications Specialist/Intern' with total score: 0.4
+Scored job 'Solutions Architect' with total score: 3.4
+Scored job 'Software Engineer III' with total score: 0.4
+Scored job 'Warehouse Technician' with total score: 3.4
+Scored job '*Lead Instructional Technologist' with total score: 0.4
+Scored job 'Software Engineer III, Verily Me Web' with total score: 3.4
+Scored job 'Lead .NET/React Developer' with total score: 1.9
+Scored job 'Solutions Engineer, Capital Markets/FSI' with total score: 4.9
+Scored job 'Software Engineer III - GMT GCDW Technology' with total score: 3.4
+Scored job 'Feature Lead - Technology' with total score: 0.4
+Scored job 'Product Security Engineer' with total score: 4.3
+Scored job 'Digital Rotational Program' with total score: 5.1
+Scored job 'Advisory Compliance Officer - Fixed Income Business Line Compliance' with total score: 2.8
+Scored job 'Price Scanning Specialist' with total score: 3.4
+Scored job 'Frontend Software Engineer' with total score: 5.8
+Scored job 'Engineering Manager, Web Platforms' with total score: 2.8
+Scored job 'Independent Scanning Specialist' with total score: 3.4
+Scored job 'Tax Senior - Financial Services Organization - Private Client Services' with total score: 0.4
+Scored job '[15h Left] Locum Physician Assistant (PA) - Urgent Care in New Jersey' with total score: 4.2
+Scored job 'LPN Med Tech' with total score: 1.3
+Scored job 'Sr IT Principal Architect - AI Solutions' with total score: 1.9
+Scored job 'Senior Software QA Technical Leader - Automation and Test Architecture' with total score: 46.9
+Scored job 'Senior Solutions Engineer, China' with total score: 0.4
+Scored job 'Principal Technical Writer - Auth0' with total score: 3.1
+Scored job 'Agentic Commerce UI Engineer SMTS/LMTS' with total score: 1.9
+Scored job 'Technical Integrations Consultant (SAP S/4 HANA, Ariba, Oracle or Workday)' with total score: 3.4
+Scored job 'Sr. Software Engineer, Infrastructure' with total score: 1.9
+Scored job 'Compliance Manager' with total score: 0.4
+Scored job 'Pricing Integrity Agent' with total score: 3.4
+Scored job 'Preschool Master Teacher - BA' with total score: 0.4
+Scored job 'Strategic Account Executive - Remote' with total score: 1.9
+Scored job 'Sr. Software Engineer - HRMS Tools & Tech' with total score: 4.9
+Scored job 'Engineering Manager, Performance and Release Engineering' with total score: 1.9
+Scored job 'ServiceNow Technical Consultant' with total score: 1.9
+Scored job 'Manager, Sales Engineering' with total score: 3.4
+Scored job 'Front End Software Engineer, Marketing' with total score: 6.4
+Scored job 'Senior Identity & Access Management Engineer' with total score: 1.9
+Scored job 'Quality Assurance Engineer' with total score: 4.9
+Scored job 'Staff Software Engineer' with total score: 3.4
+Scored job 'West Coast University, Inc.' with total score: 1.9
+Scored job 'Engineering Lead - Fintech' with total score: 3.4
+Scored job 'Sr. UX/Product Designer - Clinical AI Interfaces' with total score: 3.4
+Scored job 'Senior Software Engineer - LQA' with total score: 1.9
+Scored job 'Travel Telemetry Registered Nurse - $2,634 per week' with total score: 3.4
+Scored job 'GIS Programmer (3-5 years) (Intermediate Level)' with total score: 0.4
+Scored job 'Angular Developer' with total score: 3.4
+Scored job 'ServiceNow Developer (Remote)' with total score: 45.4
+Scored job 'SAP ERP Solution Suite Application Support (Intermediate level) (2-4 years)' with total score: 0.4
+Scored job 'Angular Engineer' with total score: 1.9
+Scored job 'SDET with Data Background' with total score: 4.9
+Scored job 'Senior SDET – JavaScript' with total score: 3.4
+Scored job 'Software Developer - Hybrid' with total score: 4.6
+Scored job 'Front-End Software Engineer - Hybrid' with total score: 4.6
+Scored job 'Junior C++ Software Developer' with total score: 5.4
+Scored job 'Senior Manager, SEO & Content Marketing' with total score: 0.4
+Scored job 'Clinical LD - Sutherland Cardiology - FT days' with total score: 4.2
+Scored job 'Full Time Physical Therapist' with total score: 4.2
+Scored job 'Registered Nurse (RN)- Ambulatory Clinical Coordinator, Medicine Clinic, FT' with total score: 0.4
+Scored job 'Registered Respiratory Therapist' with total score: 4.2
+Scored job 'RRT Full Time' with total score: 4.2
+Scored job 'Physical Therapy Assistant-Full Time-University - Days' with total score: 4.2
+Scored job 'Certified Occupational Therapy Assistant-Full Time-Days-South' with total score: 4.2
+Scored job 'Certified Orthoptist | FT Days | Le Bonheur Ophthalmology' with total score: 4.2
+Scored job 'Registered Nurse (RN) - Medical / Surgical' with total score: 3.4
+Scored job 'Physician | Radiology General' with total score: 3.4
+Scored job 'Nurse Practitioner' with total score: 3.4
+Scored job 'Advisory Compliance Officer - Fixed Income Business Line Compliance' with total score: 2.8
+Scored job 'Endoscopy Technician' with total score: 3.4
+Scored job 'Registered Respiratory Therapist | RRT | Night | Le Bonheur' with total score: 4.2
+Scored job 'Material Handler' with total score: 0.4
+Scored job 'Physician | Radiologist Neuro' with total score: 3.4
+Scored job 'Software Engineer II Full Stack' with total score: 1.9
+Scored job 'Senior AI Python Developer' with total score: 1.6
+Scored job 'ML Scientist Foundation Model' with total score: 1.9
+Scored job 'Investment Research Associate' with total score: 1.9
+Scored job 'Senior DevOps Engineer' with total score: 1.9
+Scored job 'Senior Security Engineer' with total score: 1.9
+Scored job 'Membership Site Support Specialist' with total score: 1.9
+Scored job 'Backend Developer @ lobstr.io Python Scraping Celery' with total score: 5.4
+Scored job 'Senior TS React Developer' with total score: 1.9
+Scored job 'AI Driven Engineer Ruby' with total score: 1.9
+Scored job 'Senior Security Engineer' with total score: 1.9
+Scored job 'Software Engineer' with total score: 1.9
+Scored job 'Senior Developer' with total score: 1.9
+Scored job 'Lead Software Engineer II Backend' with total score: 1.9
+Scored job 'Application Engineer' with total score: 1.9
+Scored job 'Svelte Developer' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'Software Engineer II' with total score: 1.9
+Scored job 'EMEA Solutions Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer Full Stack' with total score: 1.9
+Scored job 'Data Engineer II' with total score: 1.9
+Scored job 'Senior Backend Engineer' with total score: 1.9
+Scored job 'Senior Scientific Software Engineer Magnet Protection Systems' with total score: 1.9
+Scored job 'Senior Site Reliability Engineer ML Platforms' with total score: 1.9
+Scored job 'Senior Python Backend Engineer' with total score: 1.9
+Scored job 'Go Developer Consultant' with total score: 1.9
+Scored job 'Senior Backend Engineer II' with total score: 1.9
+Scored job 'React Native Developer' with total score: 1.9
+Scored job 'Senior Staff Software Engineer Backend' with total score: 1.9
+Scored job 'Senior Fullstack Developer' with total score: 1.9
+Scored job 'Head of CRM' with total score: 1.9
+Scored job 'Content Producer Technical Content Engineer Junior Dev' with total score: 6.9
+Scored job 'Full Stack Engineer' with total score: 1.9
+Scored job 'Senior Software Engineer' with total score: 1.9
+Scored job 'Developer Relations Engineer' with total score: 1.9
+Scored job 'Senior Mobile iOS Engineer' with total score: 1.9
+Scored job 'Principal Game Designer' with total score: 1.9
+Scored job 'Senior Product Manager Data' with total score: 1.9
+Scored job 'Fullstack Developer JS Developer' with total score: 1.9
+Scored job 'Back End Engineer' with total score: 1.9
+Scored job 'Staff Front End Engineer' with total score: 1.9
+Scored job 'Opportunity for Golang Experts > who can think and work Full Stack' with total score: 1.9
+Scored job 'English Language Data Annotator' with total score: 1.9
+Scored job 'Member of Technical Staff Transparency' with total score: 1.9
+Scored job 'Full Stack Engineer' with total score: 1.9
+Scored job 'Staff Engineer Distributed Systems' with total score: 1.9
+Scored job 'Senior Software Engineer Open Source Server' with total score: 1.9
+Scored job 'Software Engineer Interop' with total score: 1.9
+Scored job 'Software Engineer' with total score: 1.9
+Scored job 'Software Engineer Ledger IOE Cardano' with total score: 1.9
+Scored job 'UI UX Product Designer' with total score: 1.9
+Scored job 'Admin and Support Specialist With Love for Writing' with total score: 1.9
+Scored job 'Crypto Compliance Project Manager' with total score: 1.9
+Scored job 'Executive Assistant &amp; Office Manager' with total score: 1.9
+Scored job 'Account Executive Retail' with total score: 1.9
+Scored job 'Senior Product Designer' with total score: 1.9
+Scored job 'Data Collection Participant Photo Submission Task' with total score: 2.4
+Scored job 'Aprio PH FP&amp;A Analyst' with total score: 1.9
+Scored job 'Sales Development Representative' with total score: 1.9
+Scored job 'Underwriter' with total score: 1.9
+Scored job 'User Support Specialist' with total score: 2.4
+Scored job 'Exchange Operations Analyst' with total score: 1.9
+Scored job 'Customer Success Analyst' with total score: 1.9
+Scored job 'QA Analyst' with total score: 1.9
+Scored job 'Technical Account Manager' with total score: 1.9
+Scored job 'Sales Director' with total score: 1.9
+Scored job 'Entrepreneurial Apprentice Eccentric Millionaire' with total score: 1.9
+Scored job 'Assistant Trader' with total score: 1.9
+Scored job 'Senior DevOps Engineer' with total score: 1.9
+Scored job 'Manufacturing Experts AI Trainer' with total score: 2.4
+Scored job 'Primary Coach Career Prep' with total score: 1.9
+Scored job 'Blockchain Security Researcher' with total score: 1.9
+Scored job '$1000 Weekly Virtual Assistant' with total score: 1.9
+Scored job 'Chief Executive Officer Crypto Blockchain' with total score: 1.9
+Scored job 'Security Researcher' with total score: 1.9
+Scored job 'Customer Onboarding & Support Specialist' with total score: 1.9
+Scored job 'US Rater' with total score: 1.9
+Scored job 'Business Development Manager Ad Tech' with total score: 1.9
+Scored job 'Partnerships Lead' with total score: 1.9
+Scored job 'Social Media Content Creator' with total score: 1.9
+Scored job 'UI UX Designer' with total score: 1.9
+Scored job 'Personalized Internet Assessor' with total score: 1.9
+Scored job 'Founding Product Lead' with total score: 1.9
+Scored job 'Customer Support Operations Lead' with total score: 1.9
+Scored job 'Growth Marketer' with total score: 1.9
+Scored job 'VP Associate Talent Acquisition' with total score: 1.9
+Scored job 'Mental Health Therapist' with total score: 1.9
+Scored job 'Heavy Maintenance Representative' with total score: 1.9
+Scored job 'Freelance Screenshot Collector Chinese' with total score: 1.9
+Scored job 'Workday HR Systems Analyst' with total score: 1.9
+Scored job 'Information Security Officer' with total score: 1.9
+Scored job 'PR & Events Intern Digital Assets' with total score: 1.9
+Scored job 'Customer Content Manager' with total score: 1.9
+Scored job 'Customer Support Manager United States' with total score: 1.9
+Scored job 'Golang Engineer' with total score: 1.9
+Scored job 'Golang Engineer' with total score: 1.9
+Scored job 'Python Job Board' with total score: 2.1
