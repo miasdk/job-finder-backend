@@ -269,6 +269,9 @@ class UserPreferences(models.Model):
                 # Import here to avoid circular imports
                 from .tasks_enhanced import user_preference_trigger_task
                 user_preference_trigger_task.delay()
-            except ImportError:
-                # Fallback if enhanced tasks not available
+            except (ImportError, Exception) as e:
+                # Fallback if enhanced tasks not available or Redis not configured
+                import logging
+                logger = logging.getLogger(__name__)
+                logger.warning(f"Could not trigger background job rescoring: {e}")
                 pass
