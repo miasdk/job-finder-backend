@@ -23,6 +23,7 @@ try:
     SKLEARN_AVAILABLE = True
 except ImportError:
     SKLEARN_AVAILABLE = False
+    logger.warning("Scikit-learn not available - using fallback similarity calculation")
 
 from django.conf import settings
 from .models import Job, UserPreferences
@@ -134,9 +135,16 @@ class JobAIEngine:
             skills_embedding = self._get_embedding(skills_text)
             
             # Calculate cosine similarity
-            similarity = np.dot(job_embedding, skills_embedding) / (
-                np.linalg.norm(job_embedding) * np.linalg.norm(skills_embedding)
-            )
+            if SKLEARN_AVAILABLE:
+                similarity = np.dot(job_embedding, skills_embedding) / (
+                    np.linalg.norm(job_embedding) * np.linalg.norm(skills_embedding)
+                )
+            else:
+                # Simple dot product fallback
+                similarity = sum(a * b for a, b in zip(job_embedding, skills_embedding)) / (
+                    (sum(a * a for a in job_embedding) ** 0.5) * 
+                    (sum(b * b for b in skills_embedding) ** 0.5)
+                )
             
             return float(similarity)
             
@@ -274,12 +282,15 @@ class JobAIEngine:
             model="text-embedding-ada-002",
             input=text[:8000]  # Limit input length
         )
-        return np.array(response.data[0].embedding)
+        if SKLEARN_AVAILABLE:
+            return np.array(response.data[0].embedding)
+        else:
+            return response.data[0].embedding
     
     def _tfidf_similarity(self, job_description: str, user_skills: List[str]) -> float:
-        """Fallback similarity using TF-IDF"""
+        """Fallback similarity using TF-IDF or simple word matching"""
         if not SKLEARN_AVAILABLE:
-            return 0.5
+            return self._simple_word_similarity(job_description, user_skills)
         
         try:
             skills_text = " ".join(user_skills)
@@ -290,7 +301,24 @@ class JobAIEngine:
             
             return float(similarity[0][0])
         except:
-            return 0.5
+            return self._simple_word_similarity(job_description, user_skills)
+    
+    def _simple_word_similarity(self, job_description: str, user_skills: List[str]) -> float:
+        """Simple word-based similarity when sklearn unavailable"""
+        if not user_skills:
+            return 0.0
+        
+        job_words = set(job_description.lower().split())
+        skill_words = set(' '.join(user_skills).lower().split())
+        
+        if not skill_words:
+            return 0.0
+        
+        # Calculate Jaccard similarity
+        intersection = len(job_words.intersection(skill_words))
+        union = len(job_words.union(skill_words))
+        
+        return intersection / union if union > 0 else 0.0
     
     def _extract_skills_regex(self, text: str) -> List[str]:
         """Fallback skill extraction using regex patterns"""
