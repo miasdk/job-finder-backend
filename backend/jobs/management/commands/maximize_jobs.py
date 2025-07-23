@@ -119,8 +119,8 @@ class Command(BaseCommand):
                 self.stdout.write(f"  ❌ Error with {strategy}: {e}")
                 continue
 
-        # 2. WELLFOUND - Startup jobs
-        self.stdout.write("\n🏢 STEP 2: Wellfound (Startup jobs)")
+        # 3. WELLFOUND - Startup jobs
+        self.stdout.write("\n🏢 STEP 3: Wellfound (Startup jobs)")
         wellfound_scraper = WellfoundScraper(preferences)
         
         startup_searches = [
@@ -138,8 +138,8 @@ class Command(BaseCommand):
                 except Exception as e:
                     continue
 
-        # 3. PYTHON.ORG - Python-specific jobs
-        self.stdout.write("\n🐍 STEP 3: Python.org (Python-specific)")
+        # 4. PYTHON.ORG - Python-specific jobs
+        self.stdout.write("\n🐍 STEP 4: Python.org (Python-specific)")
         python_scraper = PythonJobsScraper(preferences)
         
         python_searches = [
