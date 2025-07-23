@@ -239,16 +239,16 @@ class JobScorer:
             company_score * self.weights['company']
         )
         
-        # Determine recommendation flags using dynamic thresholds
+        # Determine recommendation flags using more realistic thresholds
         min_threshold = self.preferences.min_job_score_threshold
         
         meets_minimum = (
-            skills_score >= 30 and  # At least 30% skill match
+            skills_score >= 15 and  # At least 15% skill match (lowered from 30%)
             experience_score >= 0 and  # Not senior level
-            total_score >= min_threshold  # User's minimum score threshold
+            total_score >= 25  # Minimum 25% overall score (more realistic)
         )
         
-        recommended = total_score >= (min_threshold + 20) and meets_minimum
+        recommended = total_score >= 50 and meets_minimum  # 50% for recommendations
         
         return {
             'skills_score': skills_score,
