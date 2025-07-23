@@ -8,6 +8,11 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 import json
 import logging
+from django.db.models import Count, Avg
+from collections import Counter
+import statistics
+from datetime import timedelta
+from django.utils import timezone
 
 from .models import Job, JobScore, Company, EmailDigest, UserPreferences
 from django.core.management import call_command
@@ -19,9 +24,12 @@ logger = logging.getLogger(__name__)
 
 @require_http_methods(["GET"])
 def simple_dashboard_api(request):
-    """Simple dashboard API without DRF"""
+    """Enhanced dashboard API with AI intelligence insights"""
     try:
-        # Get job statistics
+        # Get user preferences for personalization
+        user_preferences = UserPreferences.get_active_preferences()
+        
+        # Basic job statistics
         total_jobs = Job.objects.filter(is_active=True).count()
         recommended_jobs = JobScore.objects.filter(
             job__is_active=True,
@@ -33,6 +41,89 @@ def simple_dashboard_api(request):
             meets_minimum_requirements=True
         ).count()
         
+        # AI-POWERED INSIGHTS
+        
+        # 1. Skills Intelligence - What skills are in demand?
+        all_job_skills = []
+        jobs_with_skills = Job.objects.filter(is_active=True, required_skills__isnull=False).exclude(required_skills__exact=[])
+        for job in jobs_with_skills:
+            if job.required_skills:
+                all_job_skills.extend(job.required_skills)
+        
+        skill_counts = Counter(all_job_skills)
+        top_market_skills = [{'skill': skill, 'count': count} for skill, count in skill_counts.most_common(8)]
+        
+        # 2. Your Skills vs Market Demand
+        user_skills = user_preferences.skills if user_preferences.skills else []
+        user_skill_demand = []
+        for skill in user_skills[:6]:  # Top 6 user skills
+            count = skill_counts.get(skill, 0)
+            user_skill_demand.append({'skill': skill, 'market_demand': count})
+        
+        # 3. Salary Intelligence
+        jobs_with_salary = Job.objects.filter(is_active=True, salary_min__isnull=False, salary_min__gt=0)
+        if jobs_with_salary.exists():
+            salaries = [job.salary_min for job in jobs_with_salary]
+            avg_salary = int(statistics.mean(salaries)) if salaries else 0
+            median_salary = int(statistics.median(salaries)) if salaries else 0
+            
+            # Your target vs market
+            market_comparison = {
+                'your_min': user_preferences.min_salary,
+                'your_max': user_preferences.max_salary,
+                'market_avg': avg_salary,
+                'market_median': median_salary,
+                'above_market': user_preferences.min_salary > avg_salary
+            }
+        else:
+            market_comparison = None
+        
+        # 4. Location Intelligence  
+        location_stats = []
+        jobs_by_location = Job.objects.filter(is_active=True).values('location').annotate(
+            count=Count('id'),
+            avg_score=Avg('score__total_score')
+        ).order_by('-count')[:6]
+        
+        for loc_data in jobs_by_location:
+            location_stats.append({
+                'location': loc_data['location'],
+                'job_count': loc_data['count'],
+                'avg_score': round(loc_data['avg_score'] or 0, 1),
+                'is_preferred': loc_data['location'] in user_preferences.preferred_locations
+            })
+        
+        # 5. AI Recommendations Engine Status
+        recent_scores = JobScore.objects.filter(
+            job__is_active=True,
+            updated_at__gte=timezone.now() - timedelta(hours=24)
+        )
+        
+        ai_engine_stats = {
+            'jobs_scored_today': recent_scores.count(),
+            'avg_match_score': round(recent_scores.aggregate(Avg('total_score'))['total_score__avg'] or 0, 1),
+            'high_matches': recent_scores.filter(total_score__gte=80).count(),
+            'search_terms_used': user_preferences.job_titles[:3] if user_preferences.job_titles else ['Python Developer'],
+            'active_scrapers': ['JSearch API', 'Adzuna', 'RemoteOK', 'Indeed', 'Wellfound']
+        }
+        
+        # 6. Smart Job Alerts
+        trending_companies = Job.objects.filter(
+            is_active=True,
+            score__total_score__gte=70
+        ).values('company__name').annotate(
+            count=Count('id'),
+            avg_score=Avg('score__total_score')
+        ).order_by('-avg_score')[:4]
+        
+        smart_alerts = []
+        for company in trending_companies:
+            smart_alerts.append({
+                'company': company['company__name'],
+                'high_match_jobs': company['count'],
+                'avg_match': round(company['avg_score'], 1)
+            })
+        
         # Latest scraping info
         latest_job = Job.objects.filter(is_active=True).order_by('-scraped_at').first()
         last_scrape_date = latest_job.scraped_at if latest_job else None
@@ -41,18 +132,20 @@ def simple_dashboard_api(request):
         latest_digest = EmailDigest.objects.order_by('-sent_at').first()
         last_email_date = latest_digest.sent_at if latest_digest else None
         
-        # Top scoring jobs
+        # Top scoring jobs (more intelligent selection)
         top_jobs_qs = Job.objects.filter(
             is_active=True,
-            score__isnull=False
+            score__isnull=False,
+            score__total_score__gte=60  # Only show decent matches
         ).select_related('company', 'score').order_by('-score__total_score')[:4]
         
-        # Recent jobs
+        # Recent jobs with good scores
         recent_jobs_qs = Job.objects.filter(
-            is_active=True
+            is_active=True,
+            score__isnull=False
         ).select_related('company', 'score').order_by('-scraped_at')[:4]
         
-        # Convert jobs to simple dicts
+        # Convert jobs to enhanced dicts
         def job_to_dict(job):
             return {
                 'id': job.id,
@@ -77,16 +170,32 @@ def simple_dashboard_api(request):
                 'score': {
                     'total_score': job.score.total_score if job.score else 0,
                     'skills_score': job.score.skills_match_score if job.score else 0,
+                    'matching_skills': job.score.matching_skills if job.score else [],
+                    'missing_skills': job.score.missing_skills if job.score else [],
                     'recommended_for_application': job.score.recommended_for_application if job.score else False,
                 } if hasattr(job, 'score') and job.score else None
             }
         
         data = {
+            # Basic stats
             'total_jobs': total_jobs,
             'recommended_jobs': recommended_jobs,
             'meets_minimum': meets_minimum,
             'last_scrape_date': last_scrape_date.isoformat() if last_scrape_date else None,
             'last_email_date': last_email_date.isoformat() if last_email_date else None,
+            
+            # AI Intelligence Insights
+            'skills_intelligence': {
+                'top_market_skills': top_market_skills,
+                'your_skills_demand': user_skill_demand,
+                'recommendation': 'Focus on high-demand skills' if top_market_skills else 'Building skill database...'
+            },
+            'salary_intelligence': market_comparison,
+            'location_intelligence': location_stats,
+            'ai_engine_status': ai_engine_stats,
+            'smart_company_alerts': smart_alerts,
+            
+            # Job lists (enhanced)
             'top_jobs': [job_to_dict(job) for job in top_jobs_qs],
             'recent_jobs': [job_to_dict(job) for job in recent_jobs_qs],
         }
@@ -94,6 +203,7 @@ def simple_dashboard_api(request):
         return JsonResponse(data)
     
     except Exception as e:
+        logger.error(f"Dashboard API error: {e}")
         return JsonResponse({'error': str(e)}, status=500)
 
 
