@@ -5,15 +5,27 @@ This allows Render to find manage.py in the expected location.
 """
 import os
 import sys
-import subprocess
 
 if __name__ == '__main__':
-    # Change to backend directory and run the real manage.py
-    backend_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'backend')
-    manage_py = os.path.join(backend_dir, 'manage.py')
+    # Get the directory containing this script
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    backend_dir = os.path.join(current_dir, 'backend')
+    
+    # Add backend directory to Python path
+    sys.path.insert(0, backend_dir)
     
     # Change working directory to backend
     os.chdir(backend_dir)
     
-    # Execute the real manage.py with all arguments
-    sys.exit(subprocess.call([sys.executable, manage_py] + sys.argv[1:]))
+    # Set Django settings module
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'job_finder.settings')
+    
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and "
+            "available on your PYTHONPATH environment variable? Did you "
+            "forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
