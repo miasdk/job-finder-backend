@@ -13,6 +13,8 @@ from .python_jobs_scraper import PythonJobsScraper
 from .wellfound_scraper import WellfoundScraper
 from .adzuna_api_scraper import AdzunaAPIScraper
 from .jsearch_api_scraper import JSearchAPIScraper
+from .reed_api_scraper import ReedAPIScraper
+from .rise_api_scraper import RiseAPIScraper
 
 logger = logging.getLogger('jobs')
 
@@ -32,6 +34,8 @@ class MultiSourceCoordinator:
             'wellfound': WellfoundScraper(user_preferences),
             'adzuna': AdzunaAPIScraper(user_preferences),
             'jsearch': JSearchAPIScraper(user_preferences),
+            'reed': ReedAPIScraper(user_preferences),
+            'rise': RiseAPIScraper(user_preferences),
         }
         
         logger.info(f"Initialized {len(self.scrapers)} job scrapers")
@@ -80,7 +84,7 @@ class MultiSourceCoordinator:
         Scrape from priority sources for reliable results
         Focus on sources that typically have good data quality
         """
-        priority_scrapers = ['jsearch', 'adzuna', 'remoteok', 'python_jobs', 'indeed_selenium']
+        priority_scrapers = ['jsearch', 'adzuna', 'reed', 'rise', 'remoteok', 'python_jobs', 'indeed_selenium']
         all_jobs = []
         
         for source_name in priority_scrapers:

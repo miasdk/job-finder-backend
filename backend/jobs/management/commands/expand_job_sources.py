@@ -115,8 +115,8 @@ class Command(BaseCommand):
         all_scraped_jobs = []
         
         # Strategy 1: Priority API sources (highest quality)
-        self.stdout.write("\n🌟 STEP 1: Priority API Sources (JSearch, Adzuna)")
-        api_sources = ['jsearch', 'adzuna']
+        self.stdout.write("\n🌟 STEP 1: Priority API Sources (JSearch, Adzuna, Reed, Rise)")
+        api_sources = ['jsearch', 'adzuna', 'reed', 'rise']
         
         for source_name in api_sources:
             if source_name in coordinator.scrapers:
