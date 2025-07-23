@@ -9,6 +9,7 @@ from jobs.models import Job, Company, UserPreferences
 from jobs.scrapers.remoteok_scraper import RemoteOKScraper
 from jobs.scrapers.python_jobs_scraper import PythonJobsScraper
 from jobs.scrapers.wellfound_scraper import WellfoundScraper
+from jobs.scrapers.adzuna_api_scraper import AdzunaAPIScraper
 from jobs.scoring import JobScorer
 import logging
 
@@ -51,6 +52,27 @@ class Command(BaseCommand):
         self.stdout.write(f"⚡ Using very low score threshold: {min_score} to maximize results")
 
         all_scraped_jobs = []
+
+        # 0. ADZUNA API - Professional job aggregator
+        self.stdout.write("\n🌟 STEP 0: Adzuna API (Professional aggregator)")
+        adzuna_scraper = AdzunaAPIScraper(preferences)
+        
+        api_searches = [
+            ['python', 'django'],
+            ['software engineer', 'backend'],
+            ['full stack', 'web developer'],
+            ['javascript', 'react'],
+        ]
+        
+        for search_terms in api_searches:
+            for location in ['New York', 'San Francisco', 'Remote', 'USA']:
+                try:
+                    jobs = adzuna_scraper.scrape_jobs(search_terms, location)
+                    self.stdout.write(f"  🎯 Found {len(jobs)} jobs for: {', '.join(search_terms)} in {location}")
+                    all_scraped_jobs.extend(jobs)
+                except Exception as e:
+                    self.stdout.write(f"  ⚠️ Adzuna error for {search_terms} in {location}: {e}")
+                    continue
 
         # 1. REMOTEOK - Most reliable source
         self.stdout.write("\n🎯 STEP 1: RemoteOK (Most reliable)")

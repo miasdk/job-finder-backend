@@ -11,6 +11,7 @@ from .enhanced_indeed_scraper import EnhancedIndeedScraper
 from .selenium_indeed_scraper import SeleniumIndeedScraper
 from .python_jobs_scraper import PythonJobsScraper
 from .wellfound_scraper import WellfoundScraper
+from .adzuna_api_scraper import AdzunaAPIScraper
 
 logger = logging.getLogger('jobs')
 
@@ -28,6 +29,7 @@ class MultiSourceCoordinator:
             'indeed_selenium': SeleniumIndeedScraper(user_preferences),
             'python_jobs': PythonJobsScraper(user_preferences),
             'wellfound': WellfoundScraper(user_preferences),
+            'adzuna': AdzunaAPIScraper(user_preferences),
         }
         
         logger.info(f"Initialized {len(self.scrapers)} job scrapers")
@@ -76,7 +78,7 @@ class MultiSourceCoordinator:
         Scrape from priority sources for reliable results
         Focus on sources that typically have good data quality
         """
-        priority_scrapers = ['remoteok', 'python_jobs', 'indeed_selenium']
+        priority_scrapers = ['adzuna', 'remoteok', 'python_jobs', 'indeed_selenium']
         all_jobs = []
         
         for source_name in priority_scrapers:
