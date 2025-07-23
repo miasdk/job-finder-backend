@@ -317,10 +317,32 @@ def update_user_preferences(request):
         
         prefs.save()
         
+        # Force immediate rescoring of jobs with new preferences
+        try:
+            from .scoring import JobScorer
+            from .models import Job
+            
+            # Get all jobs and rescore them immediately
+            scorer = JobScorer(prefs)
+            jobs_to_rescore = Job.objects.all()
+            
+            rescored_count = 0
+            for job in jobs_to_rescore:
+                try:
+                    job_score = scorer.score_job(job)
+                    rescored_count += 1
+                except Exception:
+                    continue
+            
+            logger.info(f"Immediately rescored {rescored_count} jobs with updated preferences")
+            
+        except Exception as e:
+            logger.warning(f"Immediate rescoring failed, relying on background task: {e}")
+        
         # Return updated preferences
         return JsonResponse({
             'success': True,
-            'message': 'Preferences updated successfully',
+            'message': 'Preferences updated and jobs rescored successfully',
             'preferences': {
                 'id': prefs.id,
                 'name': prefs.name,
