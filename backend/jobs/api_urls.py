@@ -5,9 +5,7 @@ from .simple_api import (
     simple_job_detail_api,
     get_user_preferences,
     update_user_preferences,
-    refresh_production_jobs,
-    recommended_jobs_api,
-    meets_requirements_jobs_api
+    refresh_production_jobs
 )
 
 app_name = 'jobs_api'
@@ -24,8 +22,4 @@ urlpatterns = [
     
     # Job management endpoints
     path('refresh-jobs/', refresh_production_jobs, name='refresh-jobs'),
-    
-    # Filtered job endpoints
-    path('jobs/recommended/', recommended_jobs_api, name='recommended-jobs'),
-    path('jobs/meets-requirements/', meets_requirements_jobs_api, name='meets-requirements-jobs'),
 ]
