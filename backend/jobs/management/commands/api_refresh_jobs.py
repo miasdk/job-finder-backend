@@ -5,7 +5,10 @@ API-callable job refresh that can be triggered remotely
 from django.core.management.base import BaseCommand
 from django.http import HttpResponse
 from jobs.models import Job, Company, UserPreferences
-from jobs.scrapers.multi_source_coordinator import MultiSourceCoordinator
+try:
+    from jobs.scrapers.multi_source_coordinator import MultiSourceCoordinator
+except ImportError:
+    from jobs.scrapers.api_coordinator import APICoordinator as MultiSourceCoordinator
 from jobs.scoring import JobScorer
 import json
 
@@ -24,7 +27,13 @@ class Command(BaseCommand):
             
             # Scrape fresh jobs
             coordinator = MultiSourceCoordinator(preferences)
-            scraped_jobs = coordinator.scrape_priority_sources()
+            # Try different method names based on available coordinator
+            if hasattr(coordinator, 'scrape_priority_sources'):
+                scraped_jobs = coordinator.scrape_priority_sources()
+            elif hasattr(coordinator, 'fetch_priority_jobs'):
+                scraped_jobs = coordinator.fetch_priority_jobs()
+            else:
+                scraped_jobs = coordinator.fetch_jobs()
             
             # Save with low threshold
             saved_count = 0

@@ -508,7 +508,15 @@ def refresh_production_jobs(request):
     try:
         # Capture command output
         output = io.StringIO()
-        call_command('api_refresh_jobs', stdout=output)
+        
+        # Try the original command first, fallback to simple refresh
+        try:
+            call_command('api_refresh_jobs', stdout=output)
+        except Exception as e:
+            logger.warning(f"api_refresh_jobs failed: {e}, trying simple_job_refresh")
+            output = io.StringIO()  # Reset output
+            call_command('simple_job_refresh', stdout=output)
+        
         result = json.loads(output.getvalue())
         
         return JsonResponse(result)
