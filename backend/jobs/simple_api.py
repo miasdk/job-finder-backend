@@ -526,3 +526,22 @@ def refresh_production_jobs(request):
             'success': False,
             'error': str(e)
         }, status=500)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def daily_refresh_jobs(request):
+    """API endpoint for daily job refresh to maintain data freshness"""
+    try:
+        # Capture command output
+        output = io.StringIO()
+        call_command('daily_job_refresh', stdout=output)
+        result = json.loads(output.getvalue())
+        
+        return JsonResponse(result)
+        
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=500)
