@@ -1,0 +1,29 @@
+name: Daily Job Refresh
+
+on:
+  schedule:
+    # Run daily at 8 AM UTC (3 AM EST)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  refresh-jobs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Trigger Job Refresh
+      run: |
+        curl -X POST \
+          -H "Content-Type: application/json" \
+          -w "HTTP Status: %{http_code}\n" \
+          --max-time 300 \
+          https://job-finder-backend-5l5q.onrender.com/api/daily-refresh/
+        
+    - name: Wait and verify
+      run: |
+        echo "Job refresh triggered, waiting 30 seconds..."
+        sleep 30
+        
+        # Check if jobs were updated
+        curl -s https://job-finder-backend-5l5q.onrender.com/api/dashboard/ | \
+        jq '.last_scrape_date, .total_jobs' || echo "Dashboard check completed"
