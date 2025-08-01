@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-k920q)-&)foq%ef2r9vj&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com', 'mia-jobfinder.vercel.app']
 
 
 # Application definition
@@ -223,14 +223,15 @@ REST_FRAMEWORK = {
 }
 
 # CORS Configuration
-# For development, allow all origins
-CORS_ALLOW_ALL_ORIGINS = True
+# Allow specific origins for production
+CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://localhost:8001",
     "http://127.0.0.1:8001",
+    "https://mia-jobfinder.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -254,4 +255,9 @@ CORS_ALLOW_METHODS = [
     'PATCH',
     'POST',
     'PUT',
+]
+
+# Additional CORS settings for Vercel
+CORS_ALLOW_ORIGIN_WHITELIST = [
+    "https://mia-jobfinder.vercel.app",
 ]
