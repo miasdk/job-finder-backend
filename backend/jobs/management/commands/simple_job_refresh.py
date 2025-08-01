@@ -18,9 +18,19 @@ class Command(BaseCommand):
             preferences = UserPreferences.get_active_preferences()
             
             # Clear old jobs with invalid URLs
-            old_jobs = Job.objects.filter(source_url__icontains='example.com')
-            deleted_count = old_jobs.count()
+            invalid_jobs = Job.objects.filter(source_url__icontains='example.com')
+            invalid_count = invalid_jobs.count()
+            invalid_jobs.delete()
+            
+            # Clear jobs older than 30 days to make room for fresh ones
+            from datetime import datetime, timezone, timedelta
+            thirty_days_ago = datetime.now(timezone.utc) - timedelta(days=30)
+            old_jobs = Job.objects.filter(scraped_at__lt=thirty_days_ago)
+            old_count = old_jobs.count()
             old_jobs.delete()
+            
+            deleted_count = invalid_count + old_count
+            logger.info(f"Cleanup: {invalid_count} invalid jobs, {old_count} old jobs removed")
             
             saved_count = 0
             
@@ -31,13 +41,15 @@ class Command(BaseCommand):
                 scraper = JSearchAPIScraper(preferences)
                 search_terms = scraper.get_search_terms()
                 
-                # Limit to 3 search terms to avoid rate limits
-                for search_term in search_terms[:3]:
+                # Use ALL search terms for maximum coverage
+                logger.info(f"Using search terms: {search_terms}")
+                for search_term in search_terms[:6]:  # Use up to 6 search terms
+                    logger.info(f"Searching for: {search_term}")
                     jobs_data = scraper.scrape_jobs([search_term])
                     
                     scorer = JobScorer(preferences)
                     
-                    for job_data in jobs_data[:20]:  # Limit to 20 jobs per search term
+                    for job_data in jobs_data[:50]:  # Increased to 50 jobs per search term
                         try:
                             source_url = job_data.get('source_url', '')
                             if not source_url or 'example.com' in source_url:
@@ -77,10 +89,12 @@ class Command(BaseCommand):
                             # Score and save if above threshold
                             job_score = scorer.score_job(job)
                             
-                            if job_score.total_score >= 25:  # Lower threshold for testing
+                            if job_score.total_score >= 15:  # Very low threshold for maximum variety
                                 saved_count += 1
                                 logger.info(f"Added job: {job.title} (Score: {job_score.total_score:.1f})")
                             else:
+                                # Still log rejected jobs for debugging
+                                logger.debug(f"Rejected job: {job.title} (Score: {job_score.total_score:.1f})")
                                 job.delete()
                                 
                         except Exception as e:
