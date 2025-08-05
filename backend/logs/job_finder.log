@@ -1469,3 +1469,160 @@ JSearch API request failed: 429 Client Error: Too Many Requests for url: https:/
 JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Entry+Level+Developer+in+Brooklyn&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
 JSearch API: Found 0 unique jobs
 Daily job refresh completed: 24 new jobs, 24 total
+Cleanup: 0 invalid jobs, 0 old jobs removed
+Using search terms: ['Python Developer', 'Django Developer', 'Backend Developer', 'Full Stack Developer', 'Junior Software Engineer', 'Entry Level Developer', 'Web Developer', 'Kubernetes', 'DevOps', 'AWS']
+Searching for: Python Developer
+JSearch API: Searching for ['Python Developer'] in ['New York', 'Remote', 'Brooklyn', 'Manhattan']
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Python+Developer+in+New+York&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Python+Developer+in+Remote&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Python+Developer+in+Brooklyn&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API: Found 0 unique jobs
+Searching for: Django Developer
+JSearch API: Searching for ['Django Developer'] in ['New York', 'Remote', 'Brooklyn', 'Manhattan']
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Django+Developer+in+New+York&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Django+Developer+in+Remote&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Django+Developer+in+Brooklyn&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API: Found 0 unique jobs
+Searching for: Backend Developer
+JSearch API: Searching for ['Backend Developer'] in ['New York', 'Remote', 'Brooklyn', 'Manhattan']
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Backend+Developer+in+New+York&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Backend+Developer+in+Remote&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Backend+Developer+in+Brooklyn&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API: Found 0 unique jobs
+Searching for: Full Stack Developer
+JSearch API: Searching for ['Full Stack Developer'] in ['New York', 'Remote', 'Brooklyn', 'Manhattan']
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Full+Stack+Developer+in+New+York&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Full+Stack+Developer+in+Remote&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Full+Stack+Developer+in+Brooklyn&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API: Found 0 unique jobs
+Searching for: Junior Software Engineer
+JSearch API: Searching for ['Junior Software Engineer'] in ['New York', 'Remote', 'Brooklyn', 'Manhattan']
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Junior+Software+Engineer+in+New+York&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Junior+Software+Engineer+in+Remote&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Junior+Software+Engineer+in+Brooklyn&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API: Found 0 unique jobs
+Searching for: Entry Level Developer
+JSearch API: Searching for ['Entry Level Developer'] in ['New York', 'Remote', 'Brooklyn', 'Manhattan']
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Entry+Level+Developer+in+New+York&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Entry+Level+Developer+in+Remote&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API request failed: 429 Client Error: Too Many Requests for url: https://jsearch.p.rapidapi.com/search?query=Entry+Level+Developer+in+Brooklyn&page=1&num_pages=1&date_posted=week&employment_types=FULLTIME%2CPARTTIME%2CCONTRACTOR&job_requirements=under_3_years_experience%2Cmore_than_3_years_experience&country=us
+JSearch API: Found 0 unique jobs
+Cleanup: 0 invalid jobs, 0 old jobs removed
+Using search terms: ['Python Developer', 'Django Developer', 'Backend Developer', 'Full Stack Developer', 'Junior Software Engineer', 'Entry Level Developer', 'Web Developer', 'Kubernetes', 'DevOps', 'AWS']
+Adzuna API: Searching for ['Python Developer', 'Django Developer', 'Backend Developer', 'Full Stack Developer'] in ['New York', 'Remote', 'Brooklyn', 'Manhattan']
+Adzuna: 20 jobs for 'Python Developer' in 'New York'
+Adzuna: 20 jobs for 'Python Developer' in 'Remote'
+Adzuna: 20 jobs for 'Django Developer' in 'New York'
+Adzuna: 7 jobs for 'Django Developer' in 'Remote'
+Adzuna: 20 jobs for 'Backend Developer' in 'New York'
+Adzuna: 20 jobs for 'Backend Developer' in 'Remote'
+Adzuna API: Found 100 unique jobs
+Scored job 'Python Developer, Mid-Level' with total score: 3.4
+Scored job 'Cloud Systems Engineer' with total score: 49.3
+Added job: Cloud Systems Engineer (Score: 49.3)
+Scored job 'Data Scientist (AI & LLM Specialist) - to 240k  bonus  equity (SK)' with total score: 5.8
+Scored job 'Senior Manager, Solution Architecture (Data Architecture)' with total score: 2.8
+Scored job 'Senior Data Engineer - Capital One Software (Remote)' with total score: 1.9
+Scored job 'Lead Software Engineer (Profile, MUMPS)(Remote - Eligible)' with total score: 46.3
+Added job: Lead Software Engineer (Profile, MUMPS)(Remote - Eligible) (Score: 46.3)
+Scored job 'Senior Data Engineer (Python, AWS)' with total score: 46.3
+Added job: Senior Data Engineer (Python, AWS) (Score: 46.3)
+Scored job 'Lead Software Engineer (Java/Python, AWS)' with total score: 46.3
+Added job: Lead Software Engineer (Java/Python, AWS) (Score: 46.3)
+Scored job 'Senior Business Manager - Integration Transformation & Strategy' with total score: 1.3
+Scored job 'Sr. Full Stack Software Engineer (Python/React)' with total score: 2.8
+Scored job 'Solutions Engineer (Presales AI)' with total score: 1.3
+Scored job 'Feature Lead - Technology' with total score: 0.4
+Scored job 'Associate/Vice President, Trading Analytics Product Developer' with total score: 2.8
+Scored job 'Software Engineer II' with total score: 3.4
+Scored job 'Software Engineer III' with total score: 3.4
+Scored job 'Validation Engineer / System Engineer, Jersey City, NJ' with total score: 3.4
+Scored job 'Software Engineer III - Pyspark/Python/AWS' with total score: 49.9
+Added job: Software Engineer III - Pyspark/Python/AWS (Score: 49.9)
+Scored job 'Senior Engineering Development Manager, SVP' with total score: 1.9
+Scored job 'Delivery Consultant - Machine Learning Engineer, AWS Professional Services, AWS Professional Services' with total score: 49.3
+Added job: Delivery Consultant - Machine Learning Engineer, AWS Professional Services, AWS Professional Services (Score: 49.3)
+Scored job 'Web Developer' with total score: 4.6
+Scored job 'Senior Machine Learning Engineer (USA Only - 100% Remote)' with total score: 1.9
+Scored job 'Solutions Architect' with total score: 1.9
+Scored job 'Senior Product Analyst' with total score: 3.4
+Scored job 'Senior Software Engineer - Data Engineering' with total score: 1.9
+Scored job 'Senior Network Engineer' with total score: 3.4
+Scored job 'Senior Portfolio Business Analyst' with total score: 1.9
+Scored job 'Senior DevSecOps Engineer' with total score: 1.9
+Scored job 'Principal Software Engineer (Access Management SaaS Platform)' with total score: 3.4
+Scored job 'Senior Solutions Engineer' with total score: 3.4
+Scored job 'Senior or Principal Dev Ops Engineer' with total score: 3.4
+Scored job 'Front End Developer' with total score: 1.9
+Scored job 'Jr. Back End Developer' with total score: 46.9
+Added job: Jr. Back End Developer (Score: 46.9)
+Scored job 'Analytics Manager | United States | Remote' with total score: 3.4
+Scored job 'Analytics Engineer, People Data' with total score: 4.9
+Scored job 'Technical Support Engineer' with total score: 4.9
+Scored job 'Senior Software Engineer (Advanced Analytics & AI)' with total score: 46.9
+Added job: Senior Software Engineer (Advanced Analytics & AI) (Score: 46.9)
+Scored job 'Director of Engineering' with total score: 3.4
+Scored job 'Solutions Engineer (FloVision Nano)' with total score: 1.9
+Scored job 'Software Engineer (Coaching)' with total score: 4.9
+Scored job 'Senior AI Engineer' with total score: 1.9
+Scored job 'Oracle Technical Lead, VP' with total score: 0.4
+Scored job 'Oracle Technical Lead, VP' with total score: 1.9
+Scored job 'Backend Engineer' with total score: 2.8
+Scored job 'Full Stack Developer (AWS)' with total score: 49.3
+Added job: Full Stack Developer (AWS) (Score: 49.3)
+Scored job 'Lead Python Django Developer – Azure & Big Data (Microservices)' with total score: 0.4
+Scored job 'Software Engineer - Core Product (New York)' with total score: 1.3
+Scored job 'Oracle PL SQL Developer, Software Engineer, Liquidity - AVP' with total score: 0.4
+Scored job 'Protocol Engineer' with total score: 1.3
+Scored job 'Sr. Python Developer (Django required)' with total score: 5.7
+Scored job 'Senior Software Engineer | Blockchain' with total score: 3.4
+Scored job 'Backend Developer' with total score: 1.3
+Scored job 'Lead Software Engineer - Python/Django Developer' with total score: 1.9
+Scored job 'Oracle PL SQL Developer, Software Engineer, Liquidity - AVP' with total score: 1.9
+Scored job 'Founding Engineer' with total score: 5.8
+Scored job 'Full-stack developers' with total score: 1.3
+Scored job 'Senior Engineering Manager, Provider & Employer Products' with total score: 3.4
+Scored job 'Full Stack Software Engineer' with total score: 1.9
+Scored job 'EverHealth - Lead iOS Software Engineer' with total score: 3.4
+Scored job 'Software Engineer' with total score: 1.9
+Scored job 'Machine Learning Solutions Architect' with total score: 1.9
+Scored job 'Senior Specialist, Global Regulatory Operations, Systems Support' with total score: 1.9
+Scored job 'Lead UI Engineer' with total score: 1.9
+Scored job 'Go Developer Remote US (Blockchain/DeFi)' with total score: 1.9
+Scored job 'Software Engineer - Storage' with total score: 4.3
+Scored job 'Sr. Software Engineer, Backend - Lead Platform' with total score: 1.3
+Scored job 'Full Stack Developer' with total score: 4.6
+Scored job 'Full Stack Engineer' with total score: 2.8
+Scored job 'Founding Principal Architect' with total score: 3.4
+Scored job 'Front-End Architect Lead - NEW YORK, Hybrid' with total score: 1.3
+Scored job 'Senior Data Engineer' with total score: 2.8
+Scored job 'Algorithmic Trading Developer' with total score: 1.3
+Scored job 'Senior/Staff Software Engineer - Claims Engine' with total score: 2.8
+Scored job 'Applied AI Engineer' with total score: 2.8
+Scored job 'Vice President, Full-Stack Engineer II' with total score: 0.4
+Scored job 'Fullstack Software Engineer - Tech Lead' with total score: 1.9
+Scored job 'Backend Engineer' with total score: 5.8
+Scored job 'Lead Full Stack Engineer' with total score: 1.3
+Scored job 'Software Engineer Remote (Blockchain-Backed by Coinbase)' with total score: 1.9
+Scored job 'Engineering Manager, API (New York)' with total score: 1.3
+Scored job 'Product Manager - Messaging Platform & Tooling' with total score: 1.3
+Scored job 'Senior Backend Engineer' with total score: 2.8
+Scored job 'VP, Engineering' with total score: 3.4
+Scored job 'Software Engineer II, Backend (Developer Environments)' with total score: 6.4
+Scored job 'Java Developer' with total score: 4.9
+Scored job 'Senior Software Developer - THREE' with total score: 1.9
+Scored job 'UI/UX Designer' with total score: 1.9
+Scored job 'Sr. Software Integration Engineer (Remote - Virginia)' with total score: 6.4
+Scored job 'Sr. Software Integration Engineer (Remote - California)' with total score: 6.4
+Scored job 'Sr. Software Integration Engineer (Remote - Texas)' with total score: 6.4
+Scored job 'Sr. Software Integration Engineer (Remote - Colorado)' with total score: 6.4
+Scored job 'Sr. Software Integration Engineer (Remote - Georgia)' with total score: 6.4
+Scored job 'Senior Lead Analytics Engineer of Marketing Technology' with total score: 1.9
+Scored job 'Smart Contract Engineer' with total score: 4.9
+Scored job 'Chief Technical Officer' with total score: 3.4
+Scored job 'Director of Engineering' with total score: 3.4
+Scored job 'Staff Software Engineer' with total score: 1.9
+Scored job 'Software Engineer (Backend)' with total score: 4.9
+Scored job 'Software Engineer (Full Stack)' with total score: 4.9
+Scored job 'Web and Integrations Developer-HubSpot Solutions Partner' with total score: 1.9
+Scored job 'SOC Automation Quality Engineer' with total score: 1.9

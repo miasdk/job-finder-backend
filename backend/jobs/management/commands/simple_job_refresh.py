@@ -34,79 +34,145 @@ class Command(BaseCommand):
             
             saved_count = 0
             
-            # Try to use JSearch API scraper if available
+            # Try to use Adzuna API scraper first (since JSearch is over quota)
             try:
-                from jobs.scrapers.jsearch_api_scraper import JSearchAPIScraper
+                from jobs.scrapers.adzuna_api_scraper import AdzunaAPIScraper
                 
-                scraper = JSearchAPIScraper(preferences)
+                scraper = AdzunaAPIScraper(preferences)
                 search_terms = scraper.get_search_terms()
                 
-                # Use ALL search terms for maximum coverage
                 logger.info(f"Using search terms: {search_terms}")
-                for search_term in search_terms[:6]:  # Use up to 6 search terms
-                    logger.info(f"Searching for: {search_term}")
-                    jobs_data = scraper.scrape_jobs([search_term])
-                    
-                    scorer = JobScorer(preferences)
-                    
-                    for job_data in jobs_data[:50]:  # Increased to 50 jobs per search term
-                        try:
-                            source_url = job_data.get('source_url', '')
-                            if not source_url or 'example.com' in source_url:
-                                continue
-                                
-                            # Skip if exists
-                            if Job.objects.filter(source_url=source_url).exists():
-                                continue
-                            
-                            # Get or create company
-                            company_name = job_data.get('company', 'Unknown Company')
-                            company, created = Company.objects.get_or_create(
-                                name=company_name,
-                                defaults={
-                                    'company_type': 'tech',
-                                    'location': job_data.get('location', 'Unknown')
-                                }
-                            )
-                            
-                            # Create job
-                            job = Job.objects.create(
-                                title=job_data.get('title', ''),
-                                company=company,
-                                description=job_data.get('description', ''),
-                                location=job_data.get('location', ''),
-                                location_type=job_data.get('location_type', 'remote'),
-                                source=job_data.get('source', 'JSearch'),
-                                source_url=source_url,
-                                salary_min=job_data.get('salary_min'),
-                                salary_max=job_data.get('salary_max'),
-                                experience_level=job_data.get('experience_level', 'junior'),
-                                employment_type=job_data.get('job_type', 'full_time'),
-                                required_skills=job_data.get('skills', []),
-                                posted_date=job_data.get('posted_date'),
-                            )
-                            
-                            # Score and save if above threshold
-                            job_score = scorer.score_job(job)
-                            
-                            if job_score.total_score >= 15:  # Very low threshold for maximum variety
-                                saved_count += 1
-                                logger.info(f"Added job: {job.title} (Score: {job_score.total_score:.1f})")
-                            else:
-                                # Still log rejected jobs for debugging
-                                logger.debug(f"Rejected job: {job.title} (Score: {job_score.total_score:.1f})")
-                                job.delete()
-                                
-                        except Exception as e:
-                            logger.error(f"Error processing job: {e}")
+                jobs_data = scraper.scrape_jobs(search_terms[:4])  # Use top 4 search terms
+                
+                scorer = JobScorer(preferences)
+                
+                for job_data in jobs_data:
+                    try:
+                        source_url = job_data.get('source_url', '')
+                        if not source_url or 'example.com' in source_url:
                             continue
                             
+                        # Skip if exists
+                        if Job.objects.filter(source_url=source_url).exists():
+                            continue
+                        
+                        # Get or create company
+                        company_name = job_data.get('company', 'Unknown Company')
+                        company, created = Company.objects.get_or_create(
+                            name=company_name,
+                            defaults={
+                                'company_type': 'tech',
+                                'location': job_data.get('location', 'Unknown')
+                            }
+                        )
+                        
+                        # Create job
+                        job = Job.objects.create(
+                            title=job_data.get('title', ''),
+                            company=company,
+                            description=job_data.get('description', ''),
+                            location=job_data.get('location', ''),
+                            location_type=job_data.get('location_type', 'remote'),
+                            source=job_data.get('source', 'Adzuna'),
+                            source_url=source_url,
+                            salary_min=job_data.get('salary_min'),
+                            salary_max=job_data.get('salary_max'),
+                            experience_level=job_data.get('experience_level', 'junior'),
+                            employment_type=job_data.get('job_type', 'full_time'),
+                            required_skills=job_data.get('skills', []),
+                            posted_date=job_data.get('posted_date'),
+                        )
+                        
+                        # Score and save if above threshold
+                        job_score = scorer.score_job(job)
+                        
+                        if job_score.total_score >= 15:  # Very low threshold for maximum variety
+                            saved_count += 1
+                            logger.info(f"Added job: {job.title} (Score: {job_score.total_score:.1f})")
+                        else:
+                            # Still log rejected jobs for debugging
+                            logger.debug(f"Rejected job: {job.title} (Score: {job_score.total_score:.1f})")
+                            job.delete()
+                            
+                    except Exception as e:
+                        logger.error(f"Error processing job: {e}")
+                        continue
+                            
             except ImportError as e:
-                logger.warning(f"JSearch scraper not available: {e}")
+                logger.warning(f"Adzuna scraper not available: {e}")
                 
-                # Fallback: Create some sample jobs to test with
-                self.create_sample_jobs(preferences)
-                saved_count = 5
+                # Try JSearch as fallback
+                try:
+                    from jobs.scrapers.jsearch_api_scraper import JSearchAPIScraper
+                    
+                    scraper = JSearchAPIScraper(preferences)
+                    search_terms = scraper.get_search_terms()
+                    
+                    logger.info(f"Fallback to JSearch with search terms: {search_terms}")
+                    for search_term in search_terms[:2]:  # Use only 2 search terms to conserve quota
+                        logger.info(f"Searching for: {search_term}")
+                        jobs_data = scraper.scrape_jobs([search_term])
+                        
+                        scorer = JobScorer(preferences)
+                        
+                        for job_data in jobs_data[:20]:  # Limit to 20 jobs per search term
+                            try:
+                                source_url = job_data.get('source_url', '')
+                                if not source_url or 'example.com' in source_url:
+                                    continue
+                                    
+                                # Skip if exists
+                                if Job.objects.filter(source_url=source_url).exists():
+                                    continue
+                                
+                                # Get or create company
+                                company_name = job_data.get('company', 'Unknown Company')
+                                company, created = Company.objects.get_or_create(
+                                    name=company_name,
+                                    defaults={
+                                        'company_type': 'tech',
+                                        'location': job_data.get('location', 'Unknown')
+                                    }
+                                )
+                                
+                                # Create job
+                                job = Job.objects.create(
+                                    title=job_data.get('title', ''),
+                                    company=company,
+                                    description=job_data.get('description', ''),
+                                    location=job_data.get('location', ''),
+                                    location_type=job_data.get('location_type', 'remote'),
+                                    source=job_data.get('source', 'JSearch'),
+                                    source_url=source_url,
+                                    salary_min=job_data.get('salary_min'),
+                                    salary_max=job_data.get('salary_max'),
+                                    experience_level=job_data.get('experience_level', 'junior'),
+                                    employment_type=job_data.get('job_type', 'full_time'),
+                                    required_skills=job_data.get('skills', []),
+                                    posted_date=job_data.get('posted_date'),
+                                )
+                                
+                                # Score and save if above threshold
+                                job_score = scorer.score_job(job)
+                                
+                                if job_score.total_score >= 15:  # Very low threshold for maximum variety
+                                    saved_count += 1
+                                    logger.info(f"Added job: {job.title} (Score: {job_score.total_score:.1f})")
+                                else:
+                                    # Still log rejected jobs for debugging
+                                    logger.debug(f"Rejected job: {job.title} (Score: {job_score.total_score:.1f})")
+                                    job.delete()
+                                    
+                            except Exception as e:
+                                logger.error(f"Error processing job: {e}")
+                                continue
+                                
+                except ImportError as fallback_e:
+                    logger.warning(f"JSearch fallback also not available: {fallback_e}")
+                    
+                    # Final fallback: Create some sample jobs to test with
+                    self.create_sample_jobs(preferences)
+                    saved_count = 5
             
             total_active_jobs = Job.objects.filter(is_active=True).count()
             
